@@ -1,0 +1,29 @@
+# ============================================================================
+#  docker-compose.yml — LiteLLM proxy chạy trong Docker (Giai đoạn 3)
+# ============================================================================
+#  Vì sao Docker thay vì pip: LiteLLM có dependency cần biên dịch Rust, dễ vỡ
+#  trên Windows. Image chính thức đã đóng gói sẵn -> chạy là được, tái lập tốt.
+# ============================================================================
+services:
+  litellm-proxy:
+    # Image chính thức. Ghim tag để tái lập; đổi qua biến LITELLM_IMAGE nếu cần.
+    image: ${LITELLM_IMAGE:-ghcr.io/berriai/litellm:main-stable}
+    container_name: sast-bench-litellm
+    working_dir: /app          # để "token_logger" nằm trên sys.path
+    ports:
+      - "4000:4000"            # host:container -> tool trỏ vào http://127.0.0.1:4000
+    env_file:
+      - .env                    # nạp GEMINI_API_KEY, LITELLM_MASTER_KEY
+    environment:
+      # token_logger.py ghi vào đây (đường trong container, đã mount ra host).
+      PROXY_CALL_LOG: /logs/calls.jsonl
+    volumes:
+      # Cấu hình proxy
+      - ./litellm_config.yaml:/app/config.yaml:ro
+      # Custom callback ghi token (phải nằm cạnh workdir /app)
+      - ./token_logger.py:/app/token_logger.py:ro
+      # Nơi đổ log token ra host: results/proxy_logs/
+      - ../results/proxy_logs:/logs
+    command: >
+      --config /app/config.yaml --host 0.0.0.0 --port 4000
+    restart: unless-stopped

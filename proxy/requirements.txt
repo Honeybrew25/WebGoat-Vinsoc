@@ -1,0 +1,6 @@
+# PHƯƠNG ÁN DỰ PHÒNG (pip). Mặc định dự án chạy proxy bằng Docker
+# (proxy/docker-compose.yml) vì cài pip trên Windows cần biên dịch Rust (Cargo) và
+# hay vỡ. Nếu vẫn muốn dùng pip: cài Rust từ https://rustup.rs/ rồi:
+#     python -m venv proxy/.venv && proxy/.venv/Scripts/pip install -r proxy/requirements.txt
+#     proxy/.venv/Scripts/python -m litellm --config proxy/litellm_config.yaml --port 4000
+litellm[proxy]>=1.55.0

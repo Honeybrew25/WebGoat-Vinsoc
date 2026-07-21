@@ -1,0 +1,10 @@
+{
+  "target": "WebGoat",
+  "ref": "v2025.3",
+  "sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "local_path": "target/WebGoat",
+  "num_java_files": 371,
+  "total_java_loc": 24508,
+  "file_list": "results/stats/target_java_files.txt",
+  "indexed_at": "2026-07-21T03:01:55Z"
+}

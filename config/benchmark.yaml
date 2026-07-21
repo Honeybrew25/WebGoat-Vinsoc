@@ -1,0 +1,116 @@
+# ============================================================================
+#  benchmark.yaml — SINGLE SOURCE OF TRUTH cho toàn bộ benchmark
+# ============================================================================
+#  Mọi script/doc đọc các "biến đã cố định" từ file này. Sửa 1 chỗ, cả hệ
+#  thống đổi theo. KHÔNG hardcode SHA/model ở nơi khác.
+#  (Xem docs/stage1-co-dinh-bien.md để hiểu vì sao cần cố định biến.)
+# ============================================================================
+
+# --- TARGET: mã nguồn đem đi quét (Giai đoạn 2) --------------------------------
+target:
+  name: WebGoat
+  repo: https://github.com/WebGoat/WebGoat.git
+  # Pin SHA = "đóng băng" phiên bản mã nguồn. Mọi tool quét ĐÚNG các dòng code
+  # này -> so sánh mới công bằng. Đây là release v2025.3 (mới nhất lúc setup).
+  ref: v2025.3
+  sha: c3ed45a733377bc7313b93f57ff518254d81380f
+  language: java            # Java / Spring Boot  -> lưu ý apple-to-orange
+  local_path: target/WebGoat
+
+# --- MODEL: bộ não LLM dùng chung cho MỌI tool (Giai đoạn 1) -------------------
+model:
+  id: gemini-3.1-flash-lite # cùng 1 model cho tất cả -> loại biến "model khác nhau"
+  # Bản cụ thể mà Google trả về lúc chốt (2026-07-21), ghi lại để tái lập/đối chiếu:
+  # alias "gemini-3.1-flash-lite" -> version "3.1-flash-lite-05-2026".
+  # Google có thể trỏ alias sang bản mới; nếu số liệu lệch bất thường, kiểm tra
+  # trường "modelVersion" trong response trước khi đổ tại tool.
+  version_at_pin: 3.1-flash-lite-05-2026
+  # Tham số suy luận cố định. temperature=0 => output ổn định nhất có thể,
+  # giúp benchmark tái lập (reproducible). Không phải tool nào cũng cho set,
+  # xem cột "controllable" trong bảng tool bên dưới.
+  temperature: 0
+  top_p: 1
+  # Ngân sách context (token) — đặt trần chung nếu tool cho phép.
+  max_input_tokens: 1000000
+  max_output_tokens: 8192
+
+# --- PROXY: điểm đo token/time đồng nhất (Giai đoạn 3) -------------------------
+proxy:
+  # Mọi tool sẽ trỏ endpoint "Gemini" của nó về đây thay vì Google trực tiếp.
+  # Proxy ghi lại prompt/candidates tokens + latency của TỪNG call -> khách quan.
+  host: 127.0.0.1
+  port: 4000
+  base_url: http://127.0.0.1:4000
+  # File log của proxy (JSONL, mỗi dòng 1 call LLM).
+  call_log: results/proxy_logs/calls.jsonl
+  # Header mà mỗi adapter gắn vào request để proxy biết call này của tool nào.
+  tool_tag_header: x-tool-name
+
+# --- INTERNET POLICY: chốt "không dùng internet" nghĩa là gì -------------------
+#  mode = webtools_off   -> CẤM web search/web fetch trong harness, scanner chỉ
+#                           đọc code local. Gemini hosted VẪN gọi được (mặc định).
+#  mode = airgapped      -> cấm mọi outbound kể cả model -> phải dùng model local,
+#                           Gemini hosted KHÔNG dùng được (đổi kiến trúc).
+#  >>> Mặc định webtools_off. Nếu bạn cần airgapped hoàn toàn, đổi ở đây và
+#      báo mình để thay model.
+internet:
+  mode: webtools_off
+
+# --- TOOL MATRIX: bảng các harness/skill SAST đem so ---------------------------
+#  gemini_native: tool có hỗ trợ chạy thẳng trên Gemini không?
+#    yes  -> vào nhóm "so kèo cùng model" (fair).
+#    no   -> khoá cứng model khác (vd Claude); để nhóm riêng hoặc note confound.
+#  language_fit: hợp với Java (target) tới đâu -> cảnh báo apple-to-orange.
+#  output: định dạng output gốc -> quyết định converter ở Giai đoạn 5.
+tools:
+  - id: datadog-saist
+    name: SAIST (Datadog)
+    gemini_native: yes
+    controllable: yes          # cho set model/temperature
+    two_phase: yes             # có sẵn detect -> validate (lọc FP)
+    language_fit: good
+    output: sarif
+    group: fair                # so kèo cùng-model được
+    enabled: true
+
+  - id: arm-metis
+    name: Arm Metis
+    gemini_native: yes         # model-agnostic (local/hosted)
+    controllable: yes
+    two_phase: no
+    cross_file: tree-sitter    # call graph đa file -> bắt lỗi xuyên file
+    language_fit: good
+    output: sarif
+    group: fair
+    enabled: true
+
+  - id: vulnhuntr
+    name: Vulnhuntr
+    gemini_native: yes
+    controllable: partial
+    language_fit: poor         # "primarily Python-focused" -> LỆCH SÂN với Java
+    output: json
+    group: fair
+    enabled: false             # tắt mặc định: chơi sai sân, dễ kéo tụt kết luận.
+    note: "Python-focused. Bật lại chỉ để tham chiếu, KHÔNG so trực tiếp."
+
+  - id: claude-code-security-review
+    name: Claude Code Security Review
+    gemini_native: no          # khoá Claude
+    language_fit: good
+    output: sarif
+    group: claude_locked       # không so cùng-Gemini được
+    enabled: false
+
+  - id: anthropic-defending-code
+    name: Anthropic Defending Code harness
+    gemini_native: no          # khoá Claude
+    language_fit: good
+    output: json
+    group: claude_locked
+    enabled: false
+
+# --- RUN POLICY: cách chạy đo (Giai đoạn 4) -----------------------------------
+run:
+  repeats: 3                 # chạy N lần để đo variance (token/time LLM dao động)
+  separate_cold_warm: true   # tách lần chạy nguội (cold) và ấm (warm)

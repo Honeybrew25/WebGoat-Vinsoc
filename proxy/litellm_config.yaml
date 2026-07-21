@@ -1,0 +1,34 @@
+# ============================================================================
+#  litellm_config.yaml — cấu hình LiteLLM proxy (Giai đoạn 3)
+# ============================================================================
+#  Proxy đứng GIỮA các tool SAST và Google Gemini:
+#     tool  ->  http://127.0.0.1:4000  ->  Gemini (Google)
+#  Mọi call đi qua đây đều được token_logger.py ghi lại token + latency.
+# ============================================================================
+
+# --- Danh sách "model ảo" mà proxy phơi ra cho tool ---------------------------
+model_list:
+  # Tên tool gọi: "gemini-3.1-flash-lite". Proxy định tuyến tới Gemini thật.
+  # PHẢI khớp model.id trong config/benchmark.yaml (single source of truth).
+  - model_name: gemini-3.1-flash-lite
+    litellm_params:
+      model: gemini/gemini-3.1-flash-lite
+      api_key: os.environ/GEMINI_API_KEY
+      # Cố định tham số suy luận cho công bằng (khớp config/benchmark.yaml).
+      temperature: 0
+      top_p: 1
+
+# --- Cài đặt chung + đăng ký logger token ------------------------------------
+litellm_settings:
+  # Trỏ tới instance logger trong token_logger.py (cùng thư mục proxy/).
+  # Đây là mấu chốt: mỗi call thành công -> logger ghi 1 dòng JSONL.
+  callbacks: token_logger.proxy_logger_instance
+  # Bỏ log nội dung prompt/response để file log gọn & tránh lộ code target.
+  turn_off_message_logging: true
+  drop_params: true          # tham số tool gửi mà Gemini không hiểu -> bỏ, đừng lỗi
+
+# --- Cài đặt server -----------------------------------------------------------
+general_settings:
+  # LITELLM_MASTER_KEY trong .env là BẮT BUỘC và phải bắt đầu bằng "sk-".
+  # Nếu rỗng: LiteLLM không coi Bearer là master key nữa mà tra DB -> "No connected db".
+  master_key: os.environ/LITELLM_MASTER_KEY

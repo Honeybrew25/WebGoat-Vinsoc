@@ -1,0 +1,20 @@
+# Mã nguồn target được clone tự động (Giai đoạn 2) — không commit vào repo này
+target/
+
+# Kết quả chạy: findings, thống kê, log proxy
+results/proxy_logs/*.jsonl
+results/findings/**/*.jsonl
+results/stats/**/*.jsonl
+
+# Bí mật: API key không bao giờ commit
+proxy/.env
+*.key
+
+# Python / môi trường ảo
+proxy/.venv/
+__pycache__/
+*.pyc
+
+# Log build / tạm
+*.log
+scratch/
