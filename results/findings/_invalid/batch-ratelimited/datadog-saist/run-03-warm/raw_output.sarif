@@ -1,0 +1,2193 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/DataDog/datadog-saist",
+          "name": "datadog-ai-static-analyzer",
+          "rules": [
+            {
+              "id": "datadog/go-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            }
+          ],
+          "version": "1.0.1"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": ".mvn/wrapper/MavenWrapperDownloader.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/ServerUrlConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/PlaywrightTest.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfRootMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/EnvironmentExposure.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/RegistrationPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentHints.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/WebGoatLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultMessageResponseBodyAdvice.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/OperatingSystemMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/UsernameMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/helpers/Authentication.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResult.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webwolf/pages/WebWolfLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultBuilder.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatVersionMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatTmpDirMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Messages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUsername.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/LessonTrackerInterceptor.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/lessons/HttpBasicsLessonPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/HammerHead.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/DatabaseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Assignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/PluginMessages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Category.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Hint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/CourseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Initializable.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonInfoModel.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/MvcConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItemType.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Lesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonTemplateResolver.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItem.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonName.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LabelDebugService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/EnvironmentService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjection.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionMitigations.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/controller/StartLesson.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Language.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/Contact.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRF.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/ContactImpl.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponents.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/WebWolfIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/MailAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/LandingAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webgoatintroduction/WebGoatIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonResourceScanner.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/controller/Welcome.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson13.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xpathi,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/DOMCrossSiteScripting.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/DOMCrossSiteScriptingVerifier.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingMitigation.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/CrossSiteScriptingStored.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/StoredCrossSiteScriptingVerifier.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/CommentsEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/StoredXssComments.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Comment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/XXE.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/ChromeDevTools.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/NetworkDummy.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/NetworkLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/AsciiDoctorTemplateResolver.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cia/CIA.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFilteringAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFiltering.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFilteringFreeAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ShopEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/SecureDefaultsAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/Salaries.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/Cryptography.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/XOREncodingAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/SigningAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRF.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFConfirmFlag1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/HashingAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFGetFlag.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/InsecureDeserializationTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/Review.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/InsecureDeserialization.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/SerializationHelper.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/htmltampering/HtmlTampering.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/ForgedReviews.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/Authentication.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/htmltampering/HtmlTamperingTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/AuthenticationProvider.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/HijackSessionAuthenticationProvider.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasics.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORDiffAttributes.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpProxies.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDOR.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDOREditOtherProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOtherProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOwnProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/UserProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOwnProfileAltUrl.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWT.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LabelService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/HintService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonInfoService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/report/ReportCardController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonMenuService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonProgressService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/SessionService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/LessonSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/RestartLessonService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/LabelDebugger.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/UserInterceptor.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/Course.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/Scoreboard.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/LessonProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserForm.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserProgressRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/AssignmentProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserValidator.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebGoat.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebSecurityConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/RegistrationController.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebWolfRedirect.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/WebGoatUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/AuthBypass.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/ImageServlet.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFieldRestrictions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/AccountVerificationHelper.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/Challenge1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/Assignment1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Challenge5.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Challenge7.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/PasswordResetLink.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/ChallengeIntro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge8/Challenge8.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Flag.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/FlagController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Flags.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge8/Assignment8.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/server/ParentConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/User.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/server/StartWebGoat.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/jwt/JWTToken.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/jwt/JWTController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/MvcConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/MailboxController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/MailboxRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/FileServer.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/Requests.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/UserService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/UserRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/WebWolfUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/WebWolfTraceRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/LandingPage.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/WebSecurityConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/WebWolf.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTDecodeEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/votes/Vote.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/lessontemplate/LessonTemplate.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/votes/Views.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/logging/LogBleedingTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofing.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofingTask.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACHiddenMenus.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/DisplayUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsers.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACYourHashAdmin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACYourHash.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/User.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingAccessControlUserRepository.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/PasswordReset.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/PasswordResetEmail.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/QuestionsAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/SimpleMailAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/TriedQuestions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/resetlink/PasswordChangeForm.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadFix.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRemoveUserInput.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/PathTraversal.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUpload.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadBase.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswords.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookie.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionAdvanced.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswordsAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallengeLogin.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/encoders/EncDec.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli",
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/Comment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli",
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonDataSource.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli",
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli",
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-cmdi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/AjaxAuthenticationEntryPoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScripting.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_FAILURE:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        }
+      ],
+      "results": [
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: The 'query' parameter in the 'completed' method is provided by the user. Sink: The variable 'query' is passed directly to 'statement.executeQuery(query)' at line 65 without any sanitization or parameterization. Dataflow: Untrusted input flows from the method parameter 'query' directly to the 'statement.executeQuery()' sink. Sanitization: None is applied. The code is intentionally vulnerable because it resides in the WebGoat training application, designed to teach SQL injection. Conclusion: Confirmed."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: The 'query' parameter in the 'completed' method is provided by the user. Sink: The variable 'query' is passed directly to 'statement.executeQuery(query)' at line 65 without any sanitization or parameterization. Dataflow: Untrusted input flows from the method parameter 'query' directly to the 'statement.executeQuery()' sink. Sanitization: None is applied. The code is intentionally vulnerable because it resides in the WebGoat training application, designed to teach SQL injection. Conclusion: Confirmed."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1,
+                  "endLine": 65,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "4802c2cab21f1334349e62cb941f55d5a0d1f063eac78b97e14d73a3e3127c42"
+          }
+        }
+      ],
+      "properties": {
+        "tags": [
+          "DATADOG_SAIST_OUTPUT_TOKENS:1609",
+          "DATADOG_SAIST_INPUT_TOKENS:117117"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "scope": {
+    "extensions": [
+      ".java"
+    ],
+    "exclude_test_code": true,
+    "exclude_vendor": true
+  },
+  "blind": true,
+  "judge_alias": "gemini-31-flash-lite-judge",
+  "per_tool": {
+    "arm-metis": {
+      "judged": 192,
+      "tp": 159,
+      "fp": 33,
+      "precision": 0.8281,
+      "stable_judged": 190,
+      "stable_tp": 157,
+      "stable_precision": 0.8263
+    },
+    "datadog-saist": {
+      "judged": 46,
+      "tp": 45,
+      "fp": 1,
+      "precision": 0.9783,
+      "stable_judged": 30,
+      "stable_tp": 30,
+      "stable_precision": 1.0
+    }
+  },
+  "failed": 0
+}

@@ -6,21 +6,21 @@ Muốn so chi phí giữa các tool, phải biết mỗi tool tốn bao nhiêu *
 **thời gian**. Nhưng:
 
 - Mỗi tool tự report token một kiểu (mỗi ông một phách), có tool **giấu** hẳn.
-- Nếu "token không có thì vibe code vào" (bịa) -> bảng số vô nghĩa.
 
 ## Ý tưởng
 
-Đặt **một trạm trung chuyển (proxy)** đứng giữa mọi tool và Google Gemini:
+Đặt **một trạm trung chuyển (proxy)** đứng giữa mọi tool và nhà cung cấp model
+(hiện tại: Google Gemini):
 
 ```
-   Tool SAST  ──►  LiteLLM proxy (127.0.0.1:4000)  ──►  Gemini (Google)
+   Tool SAST  ──►  LiteLLM proxy (127.0.0.1:4000)  ──►  Google Gemini
                         │
                         └──► ghi 1 dòng JSONL mỗi call:
                              tool, prompt_tokens, completion_tokens,
                              total_tokens, latency_s, cost_usd
 ```
 
-**Mọi call bắt buộc đi qua proxy**, nên token lấy từ `usage` **thật** của Gemini
+**Mọi call bắt buộc đi qua proxy**, nên token lấy từ `usage` **thật** của API
 (`promptTokenCount`, `candidatesTokenCount`) — khách quan, không thể giấu. Chỉ khi
 thật sự không lấy được mới ước lượng bằng tokenizer; đó mới là chỗ "vibe" chấp
 nhận được, không phải bịa cả bảng.
@@ -37,7 +37,7 @@ LiteLLM có dependency cần **biên dịch Rust**, cài bằng pip trên Window
 | File | Vai trò |
 |---|---|
 | `docker-compose.yml` | Định nghĩa container proxy: image, cổng, mount, env |
-| `litellm_config.yaml` | Model ảo `gemini-3.1-flash-lite` + đăng ký logger + temp=0 |
+| `litellm_config.yaml` | Alias `gemini-31-flash-lite*` trỏ tới model thật `gemini-3.1-flash-lite` + logger + temp=0 |
 | `token_logger.py` | Custom callback: mỗi call ghi 1 dòng JSONL |
 | `.env` | `GEMINI_API_KEY` + `LITELLM_MASTER_KEY` — **cả hai đều bắt buộc** |
 | `requirements.txt` | Phương án pip dự phòng |
@@ -71,12 +71,12 @@ Proxy phơi ra endpoint **OpenAI-compatible**. Trong adapter mỗi tool, đặt:
 |---|---|
 | Base URL / API base | `http://127.0.0.1:4000` |
 | Endpoint | `/v1/chat/completions` |
-| Model | `gemini-3.1-flash-lite` |
+| Model | alias theo bên gọi, ví dụ `gemini-31-flash-lite-saist` |
 | API key (header) | `Authorization: Bearer <LITELLM_MASTER_KEY>` — phải đúng key, không phải chuỗi bất kỳ |
 | **Header nhận diện tool** | `x-tool-name: <tên-tool>`  ← để proxy biết call của ai |
 
 > Nhiều tool SAST cho phép cấu hình "OpenAI-compatible base URL" — trỏ nó vào đây
-> là xong. Tool nào chỉ nói tiếng Gemini gốc thì dùng route passthrough `/gemini/...`
+> là xong. Tool nào chỉ nói giao thức riêng của nhà cung cấp thì dùng route passthrough
 > của LiteLLM (sẽ hướng dẫn ở adapter tương ứng).
 
 ### Mấu chốt: `x-tool-name`
@@ -90,6 +90,7 @@ Mỗi dòng một call:
 
 ```json
 {"ts":"2026-07-21T02:02:10Z","tool":"selftest","model":"gemini-3.1-flash-lite",
+ "requested_model":"gemini-31-flash-lite",
  "prompt_tokens":123,"completion_tokens":45,"total_tokens":168,
  "latency_s":1.83,"cost_usd":0.0001,"call_id":"..."}
 ```
@@ -116,7 +117,7 @@ schema thống kê ở Giai đoạn 5.
 - ✅ `token_logger.py` import sạch trong container (không lỗi callback).
 - ✅ Gọi logger thử -> ghi đúng vào `/logs/calls.jsonl` (mount ra
   `results/proxy_logs/`), parse đúng `x-tool-name`, token, latency, cost.
-- ✅ **Call THẬT qua Gemini đã chạy** (2026-07-21): `--smoke-test` trả 200 và ghi
+- ✅ **Call THẬT qua API đã chạy** (2026-07-21): `--smoke-test` trả 200 và ghi
   được dòng token thật vào `calls.jsonl` với `cost_usd` khác 0.
 
 ### Bẫy đã gặp: `No connected db`
@@ -140,7 +141,7 @@ rồi `docker compose up -d --force-recreate`.
 - [x] `docker compose ... config` hợp lệ, image kéo được.
 - [x] Proxy `up` -> health 200; logger ghi được JSONL.
 - [x] `GEMINI_API_KEY` + `LITELLM_MASTER_KEY` đã điền, `--smoke-test` báo
-      "Logger đã ghi token" với số liệu từ Gemini thật.
+      "Logger đã ghi token" với số liệu thật từ API.
 
 ➡️ Tiếp theo (Giai đoạn 4): viết adapter cho từng tool (SAIST, Metis) để chúng
 trỏ vào proxy này và quét `target/WebGoat`, kèm đo wall-clock và tách cold/warm.

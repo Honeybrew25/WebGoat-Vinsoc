@@ -17,21 +17,72 @@
 #     scripts/stage4_run.sh có bước kiểm tra alias tồn tại trước khi chạy.
 model_list:
   # Alias trung tính, dùng cho smoke-test (không thuộc tool nào).
-  - model_name: gemini-3.1-flash-lite
-    litellm_params: &gemini_params
+  - model_name: gemini-31-flash-lite
+    litellm_params: &model_params
       model: gemini/gemini-3.1-flash-lite
       api_key: os.environ/GEMINI_API_KEY
       # Cố định tham số suy luận cho công bằng (khớp config/benchmark.yaml).
+      # `drop_params: true` bên dưới sẽ ÂM THẦM bỏ tham số nào API từ chối, nên
+      # phải kiểm chứng bằng call thật, đừng tin cấu hình này là đủ.
       temperature: 0
       top_p: 1
 
   # Alias cho SAIST (Datadog) — tool này không gắn được header nên buộc dùng alias.
-  - model_name: gemini-3.1-flash-lite-saist
-    litellm_params: *gemini_params
+  - model_name: gemini-31-flash-lite-saist
+    litellm_params: *model_params
 
   # Alias cho Arm Metis.
-  - model_name: gemini-3.1-flash-lite-metis
-    litellm_params: *gemini_params
+  - model_name: gemini-31-flash-lite-metis
+    litellm_params: *model_params
+
+  # Alias cho LLM-as-judge (Giai đoạn 7). Tách riêng để token chấm điểm KHÔNG
+  # lẫn vào chi phí của tool — nếu chung alias, bảng "chi phí mỗi tool" sẽ bị
+  # cộng thêm phần chấm điểm và không còn nghĩa gì.
+  - model_name: gemini-31-flash-lite-judge
+    litellm_params: *model_params
+
+  # Judge ĐỘC LẬP (Giai đoạn 7c): model Pro, KHÁC LỚP với model bị chấm
+  # (flash-lite). Mục đích: cắt rủi ro tuần hoàn — model tự tán thành lập luận do
+  # chính nó sinh. Không dùng anchor *model_params vì phải trỏ model KHÁC.
+  - model_name: gemini-31-pro-judge
+    litellm_params:
+      model: gemini/gemini-3.1-pro-preview
+      api_key: os.environ/GEMINI_API_KEY
+      temperature: 0
+      top_p: 1
+      # Cho phép stage7_judge truyền `reasoning_effort`; LiteLLM ánh xạ tham số
+      # OpenAI-compatible này sang `thinkingLevel` của Gemini 3. Nếu thiếu allowlist
+      # trong khi `drop_params: true`, proxy có thể âm thầm bỏ tham số.
+      allowed_openai_params: ["reasoning_effort"]
+      num_retries: 0
+
+  # Judge độc lập dự phòng: khác model với 3.1 Flash-Lite của hai tool. Pro bị
+  # quota 250 request/ngày; Gemini 3 Flash ở thinking=low đã đo trực tiếp 4.5s,
+  # verdict hợp lệ và dùng quota riêng, nên có thể hoàn tất GĐ7c trong ngày.
+  - model_name: gemini-3-flash-judge
+    litellm_params:
+      model: gemini/gemini-3-flash-preview
+      api_key: os.environ/GEMINI_API_KEY
+      temperature: 0
+      top_p: 1
+      allowed_openai_params: ["reasoning_effort"]
+      num_retries: 0
+
+  # --- BẪY CONFOUND: fallback cứng của SAIST ---------------------------------
+  # SAIST hardcode `const aIGatewayFallbackModel = "openai/gpt-4.1-nano"`
+  # (internal/agents/detection.go:21) và TỰ ĐỘNG đổi sang model đó khi gặp 429.
+  # Fallback này chỉ kích hoạt ở chế độ --ai-gateway — đúng cờ ta buộc phải bật
+  # để SAIST chấp nhận alias. Không có cờ nào tắt được nó.
+  #
+  # Nếu để nguyên, một phần findings sẽ đến từ gpt-4.1-nano (model KHÁC hẳn) ->
+  # phá đúng cái giả định "cùng model" mà cả benchmark dựa vào.
+  #
+  # Cách vô hiệu: đăng ký chính tên đó ở đây và trỏ về CÙNG model + CÙNG tham số.
+  # SAIST tưởng nó đã đổi model, thực tế không có gì đổi.
+  # Bonus: `requested_model` trong calls.jsonl sẽ ghi "openai/gpt-4.1-nano",
+  # cho ta ĐẾM ĐƯỢC chuyện này xảy ra bao nhiêu lần thay vì chỉ đoán.
+  - model_name: openai/gpt-4.1-nano
+    litellm_params: *model_params
 
 # --- Cài đặt chung + đăng ký logger token ------------------------------------
 litellm_settings:
@@ -40,7 +91,16 @@ litellm_settings:
   callbacks: token_logger.proxy_logger_instance
   # Bỏ log nội dung prompt/response để file log gọn & tránh lộ code target.
   turn_off_message_logging: true
-  drop_params: true          # tham số tool gửi mà Gemini không hiểu -> bỏ, đừng lỗi
+  drop_params: true          # tham số tool gửi mà API không hiểu -> bỏ, đừng lỗi
+  # Bù lỗi TẠM THỜI của phía Google. Burst test 20 request nặng đo được ~6/20 trả
+  # 503 "model quá tải" (không phải 429 hết quota; xảy ra ở cả gemini-3.5-flash).
+  # Retry ở ĐÂY chứ không để tool tự xử là có chủ đích: nếu lỗi lọt tới SAIST, nó
+  # kích hoạt đường fallback đổi model — thứ ta đang cố triệt. Proxy nuốt lỗi
+  # tạm thời thì tool không bao giờ biết có sự cố.
+  # LƯU Ý ĐO LƯỜNG: thời gian chờ retry NẰM TRONG latency_s của call. Nếu 503
+  # nhiều, latency sẽ phồng lên — dùng wall_clock_s trong run_meta.json làm chuẩn.
+  num_retries: 4
+  retry_after: 2             # giây, tăng dần theo số lần thử
 
 # --- Cài đặt server -----------------------------------------------------------
 general_settings:

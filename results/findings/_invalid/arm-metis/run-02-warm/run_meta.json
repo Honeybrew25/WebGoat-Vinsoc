@@ -1,0 +1,19 @@
+{
+  "tool": "arm-metis",
+  "run_index": 2,
+  "phase": "warm",
+  "model_alias": "gpt-5.4-nano-metis",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "wall_clock_s": 460,
+  "exit_code": 1,
+  "timed_out": false,
+  "timeout_s": 3600,
+  "rate_limit_hits": 0,
+  "model_fallbacks": 0,
+  "valid": false,
+  "call_log_line_from": 737,
+  "call_log_line_to": 1157,
+  "llm_calls": 421,
+  "started_at": "2026-07-21T06:56:45Z",
+  "output_sarif": "raw_output.sarif"
+}

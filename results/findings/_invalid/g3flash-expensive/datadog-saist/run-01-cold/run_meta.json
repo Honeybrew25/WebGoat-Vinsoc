@@ -1,0 +1,19 @@
+{
+  "tool": "datadog-saist",
+  "run_index": 1,
+  "phase": "cold",
+  "model_alias": "gemini-3-flash-saist",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "wall_clock_s": 319,
+  "exit_code": 0,
+  "timed_out": false,
+  "timeout_s": 3600,
+  "rate_limit_hits": 0,
+  "model_fallbacks": 0,
+  "valid": true,
+  "call_log_line_from": 1,
+  "call_log_line_to": 154,
+  "llm_calls": 154,
+  "started_at": "2026-07-21T07:12:08Z",
+  "output_sarif": "raw_output.sarif"
+}

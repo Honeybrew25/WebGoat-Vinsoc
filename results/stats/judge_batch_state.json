@@ -1,0 +1,140 @@
+{
+  "job_name": "batches/prf6leycq1xx6e154h0c10w5ncd22bw1jdjy",
+  "model": "gemini-3-flash-preview",
+  "alias": "gemini-3-flash-judge",
+  "effort": "low",
+  "submitted_at": "2026-07-23T01:37:19.300137+00:00",
+  "request_count": 20,
+  "payload_bytes": 97410,
+  "pending_keys": [
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/container/WebSecurityConfig.java",
+      1,
+      "Exposed Actuator Endpoints"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/container/WebSecurityConfig.java",
+      61,
+      "Cross-Site Request Forgery (CSRF) Protection Disabled"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/container/controller/Welcome.java",
+      43,
+      "Open Redirect / Unsafe Forwarding"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java",
+      31,
+      "SQL Injection via Schema Name"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/container/users/RegistrationController.java",
+      60,
+      "Potential Session Fixation / Improper Authentication Handling"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java",
+      58,
+      "Insecure use of Integer.valueOf() on user-controlled input"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java",
+      30,
+      "Use of Cryptographically Broken Hash Function (MD5)"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFConfirmFlag1.java",
+      35,
+      "Potential NullPointerException due to unsafe string comparison"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/HijackSessionAuthenticationProvider.java",
+      28,
+      "Thread-unsafe access to shared mutable state"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java",
+      45,
+      "Hardcoded credentials"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java",
+      46,
+      "Hardcoded cryptographic secret"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/missingac/DisplayUser.java",
+      1,
+      "Sensitive data exposure in object representation"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java",
+      1,
+      "Path Traversal vulnerability in file retrieval"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java",
+      1,
+      "SQL Injection via ORDER BY clause"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/lessons/xxe/Comment.java",
+      25,
+      "Sensitive data exposure via auto-generated toString() method"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/webwolf/jwt/JWTController.java",
+      1,
+      "Potential Insecure JWT Handling (Algorithm Confusion/Weak Secret)"
+    ],
+    [
+      "arm-metis",
+      "src/main/java/org/owasp/webgoat/webwolf/user/WebWolfUser.java",
+      1,
+      "Potential NullPointerException in UserDetails implementation"
+    ],
+    [
+      "datadog-saist",
+      "src/main/java/org/owasp/webgoat/lessons/cryptography/HashingAssignment.java",
+      39,
+      "datadog/java-xss"
+    ],
+    [
+      "datadog-saist",
+      "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java",
+      72,
+      "datadog/java-sqli"
+    ],
+    [
+      "datadog-saist",
+      "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java",
+      65,
+      "datadog/java-sqli"
+    ]
+  ],
+  "last_state": "BATCH_STATE_SUCCEEDED",
+  "collected": true,
+  "batch_stats": {
+    "requestCount": "20",
+    "successfulRequestCount": "20"
+  },
+  "checked_at": "2026-07-23T01:41:38.978276+00:00",
+  "collected_count": 238,
+  "item_errors": []
+}

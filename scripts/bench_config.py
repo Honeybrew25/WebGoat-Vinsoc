@@ -13,7 +13,10 @@ Lệnh:
     tools-enabled              # in id các tool enabled=true, mỗi dòng 1 id
     tool <id> <field>          # vd: tool datadog-saist model_alias
     aliases                    # in model_alias của mọi tool enabled (để kiểm proxy)
+    stage8-tools <name>        # in id các tool trong profile, mỗi dòng 1 id
+    stage8-profile <name> <tool>  # in JSON knob của tool trong profile Stage 8
 """
+import json
 import sys
 import os
 
@@ -57,6 +60,13 @@ def cmd_tool(cfg, tool_id, field):
     sys.exit(f"[bench_config] không thấy tool id '{tool_id}'")
 
 
+def stage8_profile(cfg, name):
+    profiles = (cfg.get("stage8") or {}).get("profiles") or {}
+    if name not in profiles:
+        raise KeyError(f"unknown stage8 profile: {name}")
+    return profiles[name]
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
@@ -74,6 +84,25 @@ def main():
         for t in enabled_tools(cfg):
             if t.get("model_alias"):
                 print(t["model_alias"])
+    elif cmd == "stage8-profile":
+        profile_name, tool_id = sys.argv[2], sys.argv[3]
+        try:
+            profile = stage8_profile(cfg, profile_name)
+        except KeyError as exc:
+            sys.exit(f"[bench_config] {exc.args[0]}")
+        if tool_id not in profile:
+            sys.exit(
+                f"[bench_config] profile '{profile_name}' "
+                f"không có tool '{tool_id}'"
+            )
+        print(json.dumps(profile[tool_id], separators=(",", ":")))
+    elif cmd == "stage8-tools":
+        try:
+            profile = stage8_profile(cfg, sys.argv[2])
+        except KeyError as exc:
+            sys.exit(f"[bench_config] {exc.args[0]}")
+        for tool_id in profile:
+            print(tool_id)
     else:
         sys.exit(f"[bench_config] lệnh lạ: {cmd}\n{__doc__}")
 

@@ -1,0 +1,23 @@
+{
+  "scope": {
+    "extensions": [
+      ".java"
+    ],
+    "exclude_test_code": true,
+    "exclude_vendor": true
+  },
+  "blind": true,
+  "judge_alias": "gemini-31-pro-judge",
+  "per_tool": {
+    "arm-metis": {
+      "judged": 3,
+      "tp": 1,
+      "fp": 2,
+      "precision": 0.3333,
+      "stable_judged": 3,
+      "stable_tp": 1,
+      "stable_precision": 0.3333
+    }
+  },
+  "failed": 0
+}

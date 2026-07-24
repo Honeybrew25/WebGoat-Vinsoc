@@ -1,0 +1,14 @@
+{
+  "tool": "datadog-saist",
+  "run_index": 2,
+  "phase": "warm",
+  "model_alias": "gemini-3.1-flash-lite-saist",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "wall_clock_s": 26,
+  "exit_code": 0,
+  "call_log_line_from": 20,
+  "call_log_line_to": 20,
+  "llm_calls": 1,
+  "started_at": "2026-07-21T04:30:25Z",
+  "output_sarif": "raw_output.sarif"
+}

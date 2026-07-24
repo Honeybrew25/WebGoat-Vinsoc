@@ -37,22 +37,33 @@ model:
 ```
 
 - **Cùng model** để không ai được lợi thế "não to hơn".
-- **Vì sao `flash-lite`**: đủ rẻ và đủ hạn mức để quét 371 file × nhiều tool × nhiều
-  lần chạy mà không đụng rate limit — thứ sẽ làm hỏng dữ liệu giữa chừng. Đánh đổi:
-  model nhẹ thì *mọi* tool đều moi được ít TP hơn, khoảng cách giữa các tool bị nén
-  lại. Nếu bảng xếp hạng cuối cùng quá sát nhau, đó là dấu hiệu cần chạy lại trên
-  model mạnh hơn (`gemini-3.1-pro-preview`) chứ không phải các tool ngang tài.
-- Đây là **thinking model**: token suy nghĩ được tính vào `completion_tokens`, nên
-  chi phí trong `calls.jsonl` đã bao gồm phần này — không cần cộng thêm.
+- **Model thật và alias là hai thứ khác nhau.** `model.id` ở trên là model thật
+  của Google. Các tên `gemini-31-flash-lite-saist`, `...-metis`, `...-judge` chỉ
+  là alias nội bộ trên LiteLLM để quy token về đúng bên gọi; tất cả cùng trỏ tới
+  `gemini/gemini-3.1-flash-lite` với cùng tham số.
+- **Lịch sử thử model:** key Gemini cũ bị giới hạn free-tier **15 RPM**, nên các
+  mẻ thử trên model khác đã không hợp lệ. Sau khi có key Gemini mới, toàn bộ 6 run
+  chính thức được chạy lại trên `gemini-3.1-flash-lite`, 0 rate-limit và 0
+  fallback (chi tiết: [Stage 4](stage4-chay-va-do.md)). Không trộn số liệu từ các
+  mẻ thử model trước vào bảng chính.
+- **Đánh đổi của model nhẹ:** model nhẹ thì *mọi* tool đều moi được ít TP
+  hơn, khoảng cách giữa các tool bị nén lại. Nếu bảng xếp hạng cuối quá sát nhau,
+  đó là dấu hiệu cần chạy lại trên model mạnh hơn — **không phải** bằng chứng các
+  tool ngang tài.
+- API báo 0 thinking token trong prompt SAST đã đo; nếu nhà cung cấp có trả
+  reasoning token thì logger vẫn tính chúng vào `completion_tokens` và chi phí.
 - **temperature = 0**: LLM có yếu tố ngẫu nhiên; temperature cao -> trả lời khác
   nhau mỗi lần. Đặt 0 để kết quả *ổn định nhất có thể* (tái lập được). Lưu ý:
   không phải tool nào cũng cho bạn set — xem cột `controllable` trong bảng tool.
+  Đã kiểm chứng `gemini-3.1-flash-lite` **chấp nhận** `temperature=0` (một số reasoning
+  model từ chối). Phải thử lại bằng call thật mỗi lần đổi model: `drop_params:
+  true` trong `litellm_config.yaml` sẽ **âm thầm bỏ** tham số bị API từ chối.
 
 ### 3. Cùng ngân sách context (nếu tool cho phép)
 
 ```yaml
 model:
-  max_input_tokens: 1000000
+  max_input_tokens: 1000000  # dưới context API 1,048,576 token
   max_output_tokens: 8192
 ```
 
@@ -62,15 +73,16 @@ có thể.
 
 ## Ma trận tool — ai được "so kèo cùng model"?
 
-Không phải tool nào cũng chạy được Gemini. Đây là chỗ **dễ làm hỏng benchmark nhất**.
-Ta chia nhóm (cột `group` trong config):
+Không phải tool nào cũng cho trỏ sang model tuỳ chọn. Đây là chỗ **dễ làm hỏng
+benchmark nhất**. Ta chia nhóm (cột `group` trong config; cột `byo_model` = tool
+có cho "mang model của bạn tới" qua endpoint OpenAI-compatible không):
 
-| Tool | Gemini? | Nhóm | Xử lý |
+| Tool | BYO model? | Nhóm | Xử lý |
 |---|---|---|---|
-| **SAIST (Datadog)** | ✅ | `fair` | So trực tiếp. Có sẵn detect→validate (lọc FP) |
+| **SAIST (Datadog)** | ✅ (cần cờ `--ai-gateway`) | `fair` | So trực tiếp. Có sẵn detect→validate (lọc FP) |
 | **Arm Metis** | ✅ (model-agnostic) | `fair` | So trực tiếp. Có tree-sitter call graph đa file |
 | **Vulnhuntr** | ✅ nhưng | (tắt) | *Python-focused* -> lệch sân Java, tắt mặc định |
-| **Claude Code Security Review** | ❌ (khoá Claude) | `claude_locked` | Để nhóm riêng, KHÔNG so cùng-Gemini |
+| **Claude Code Security Review** | ❌ (khoá Claude) | `claude_locked` | Để nhóm riêng, KHÔNG so chung |
 | **Anthropic Defending Code** | ❌ (khoá Claude) | `claude_locked` | Để nhóm riêng |
 
 ### Quy tắc vàng

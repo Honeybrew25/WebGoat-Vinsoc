@@ -3,7 +3,7 @@ token_logger.py — custom callback cho LiteLLM proxy (Giai đoạn 3).
 
 Nhiệm vụ: mỗi khi 1 tool gọi LLM qua proxy, ghi MỘT dòng JSONL gồm:
   - tool nào gọi (đọc từ header x-tool-name)
-  - model, số token vào/ra (LẤY TỪ usage THẬT của Gemini, không đoán)
+  - model, số token vào/ra (LẤY TỪ usage THẬT của API, không đoán)
   - latency (thời gian call)
   - cost ước tính (LiteLLM tự tính theo bảng giá)
 
@@ -68,21 +68,58 @@ def _extract_tool_name(kwargs) -> str:
     return "unknown"
 
 
+# Tên model mà SAIST tự nhảy sang khi bị 429. Trong litellm_config.yaml alias này
+# đã được trỏ về cùng model, nên nó vô hại — nhưng ta vẫn ĐÁNH DẤU từng call
+# để báo cáo cuối nói được "có N call đi qua đường fallback", thay vì im lặng.
+SAIST_FALLBACK_ALIAS = "openai/gpt-4.1-nano"
+
+
+def _requested_alias(kwargs):
+    """
+    Lấy TÊN MODEL MÀ TOOL ĐÃ YÊU CẦU (alias), không phải model thật.
+
+    Vì sao cần: khi callback chạy, LiteLLM đã định tuyến xong và `kwargs["model"]`
+    là model THẬT ở phía sau ("gemini-31-flash-lite") — alias đã bị nuốt mất.
+    Dùng nó để suy ra tool thì mọi call đều rơi về "unknown". Alias gốc còn nằm ở
+    metadata.model_group và ở body request thô mà proxy nhận được.
+    """
+    lp = kwargs.get("litellm_params", {}) or {}
+    candidates = [
+        _dig(lp, "metadata", "model_group"),
+        _dig(kwargs, "metadata", "model_group"),
+        kwargs.get("model_group"),
+        _dig(lp, "proxy_server_request", "body", "model"),
+        _dig(kwargs, "proxy_server_request", "body", "model"),
+    ]
+    for c in candidates:
+        if c:
+            return str(c)
+    return None
+
+
 def _tool_from_model_alias(model_name):
     """
     Suy ra tool từ ALIAS model, dùng khi tool không gắn được header x-tool-name
     (ví dụ SAIST). Alias dạng "<model-id>-<tool-suffix>", vd:
-        gemini-3.1-flash-lite-saist  -> "datadog-saist"
-        gemini-3.1-flash-lite-metis  -> "arm-metis"
+        gemini-31-flash-lite-saist  -> "datadog-saist"
+        gemini-31-flash-lite-metis  -> "arm-metis"
     Alias trung tính (không hậu tố) -> None để rơi về "unknown"/header.
     """
     if not model_name:
         return None
+    # Fallback cứng của SAIST khi gặp 429 (xem litellm_config.yaml). Alias này đã
+    # được trỏ về cùng model nên KHÔNG phá "cùng model", nhưng call vẫn là
+    # của SAIST -> phải quy đúng tool, đừng để rơi về "unknown".
+    if str(model_name) == SAIST_FALLBACK_ALIAS:
+        return "datadog-saist"
     # Bảng ánh xạ hậu tố -> id tool trong config/benchmark.yaml
     suffix_map = {
         "saist": "datadog-saist",
         "metis": "arm-metis",
         "vulnhuntr": "vulnhuntr",
+        # Giai đoạn 7 — KHÔNG phải tool SAST. Tách riêng để chi phí chấm điểm
+        # không bị cộng nhầm vào chi phí của tool nào.
+        "judge": "_judge",
     }
     for suffix, tool_id in suffix_map.items():
         if str(model_name).endswith("-" + suffix):
@@ -113,16 +150,25 @@ class TokenLogger(CustomLogger):
             latency = None
             if start_time and end_time:
                 latency = (end_time - start_time).total_seconds()
-            model_alias = kwargs.get("model")
+            # model THẬT (sau định tuyến) vs ALIAS tool đã yêu cầu — hai thứ khác nhau.
+            real_model = kwargs.get("model")
+            alias = _requested_alias(kwargs)
             # Quy chiếu tool: ưu tiên header x-tool-name; nếu tool không gắn được
-            # header thì suy từ alias model (xem litellm_config.yaml).
+            # header thì suy từ ALIAS (xem litellm_config.yaml). Phải dùng alias,
+            # không dùng real_model — mọi alias đều trỏ về cùng một model thật nên
+            # real_model không phân biệt được tool nào.
             tool = _extract_tool_name(kwargs)
             if tool == "unknown":
-                tool = _tool_from_model_alias(model_alias) or "unknown"
+                tool = _tool_from_model_alias(alias) or "unknown"
             row = {
                 "ts": datetime.now(timezone.utc).isoformat(),
                 "tool": tool,
-                "model": model_alias,
+                "model": real_model,
+                # Ghi cả alias để GĐ5 đối chiếu được với run_meta.json.
+                "requested_model": alias,
+                # True = call này đi qua đường fallback của SAIST. Model vẫn đúng
+                # (alias trỏ về cùng model), nhưng phải đếm được để báo cáo.
+                "via_fallback": alias == SAIST_FALLBACK_ALIAS,
                 "prompt_tokens": p_tok,
                 "completion_tokens": c_tok,
                 "total_tokens": t_tok,

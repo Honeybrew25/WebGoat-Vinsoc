@@ -48,10 +48,11 @@ Ta dùng **hai cơ chế chồng lên nhau**:
 gắn header tuỳ ý*. SAIST thì không.
 
 **Cách 2 — alias model riêng cho từng tool.** Mỗi tool gọi một tên model khác
-nhau (`gemini-3.1-flash-lite-saist`, `...-metis`), nhưng **mọi alias đều trỏ về
-cùng một model thật với cùng tham số** (dùng YAML anchor `&gemini_params` trong
+nhau (`gemini-31-flash-lite-saist`, `...-metis`), nhưng **mọi alias đều trỏ về
+cùng một model thật với cùng tham số** (dùng YAML anchor `&model_params` trong
 `litellm_config.yaml`). Tính công bằng không đổi — chỉ khác cái nhãn dán ngoài.
-`token_logger.py` suy ra tool từ hậu tố alias.
+`token_logger.py` suy ra tool từ hậu tố alias — nhưng phải lấy alias từ
+`metadata.model_group`, **không** phải `kwargs["model"]` (xem mục Bẫy bên dưới).
 
 Logger ưu tiên header, thiếu thì rơi về alias. Alias là mạng lưới an toàn, và nó
 phổ quát: tool nào cũng phải chọn tên model, nên cách này luôn dùng được.
@@ -95,7 +96,7 @@ results/findings/<tool>/run-01-cold/
 {
   "tool": "arm-metis",
   "phase": "cold",
-  "model_alias": "gemini-3.1-flash-lite-metis",
+  "model_alias": "gemini-31-flash-lite-metis",
   "target_sha": "c3ed45a...",
   "wall_clock_s": 412,
   "exit_code": 0,
@@ -124,10 +125,13 @@ vì giấu đi thì kết luận thành gian lận:
   của nó, và ghi rõ.
 - **SAIST có sẵn 2 pha detect → validate**, Metis không. Đây là *thiết kế harness*
   — chính là thứ đem so, nên giữ nguyên, không cào bằng.
-- **Metis dùng provider `vllm` chứ không phải `gemini`.** `vllm` là provider
-  OpenAI-compatible; nó nói `/v1/chat/completions` — đúng endpoint mà
-  `token_logger` cắm callback. Nếu dùng provider `gemini` thì Metis nói giao thức
-  Gemini gốc và ta mất điểm đo. **Model vẫn là Gemini**, chỉ khác giao thức.
+- **Metis dùng provider `vllm` chứ không phải `openai`.** Cả hai đều
+  OpenAI-compatible và nói `/v1/chat/completions` — đúng endpoint mà
+  `token_logger` cắm callback. Chọn `vllm` vì nó *không* mặc định trỏ về
+  `api.openai.com` mà bắt buộc khai `base_url`, nên không có nguy cơ lỡ tay gọi
+  thẳng ra ngoài, vòng qua proxy và mất điểm đo. **Model thật vẫn là
+  `gemini-3.1-flash-lite`**,
+  chỉ khác cái tên provider.
 
 ## 7. Chạy
 
@@ -157,6 +161,89 @@ bình thường, nhưng `case "$tool" in datadog-saist)` **im lặng không kh�
 Đã chặn ở hai lớp: `bench_config.py` ép `sys.stdout.reconfigure(newline="\n")`,
 và `bench_cfg()` trong `lib_common.sh` lọc thêm `tr -d '\r'`.
 
+### Rate limit phá hỏng cả mẻ chạy — và làm nó *trông như* thành công
+
+Mẻ chạy đầu tiên (2026-07-21) hỏng hoàn toàn. Cùng tool, cùng target, cùng SHA:
+
+| Lần chạy | exit | call LLM | findings |
+|---|---|---|---|
+| SAIST chạy đơn lẻ (trước đó) | 0 | 37 | **9** |
+| SAIST run-01-cold | 1 | 19 | — |
+| SAIST run-02-warm | **0** | **1** | **0** |
+| SAIST run-03-warm | **0** | 19 | **1** |
+
+Ba nguyên nhân chồng lên nhau:
+
+**1. Free tier chỉ 15 request/phút.** Lỗi 429 nói thẳng:
+`quotaValue: "15"`, metric `generate_content_free_tier_requests`. SAIST chạy 20
+file song song nên đạp trần trong vài giây.
+
+**2. SAIST tự đổi sang model khác.** 39 lần `switching to fallback detection
+model: openai/gpt-4.1-nano` trong 3 run. Đây chính là confound mà cả benchmark
+sinh ra để loại bỏ. Tệ hơn, nó là **hằng số hardcode** và chỉ kích hoạt ở chế độ
+`--ai-gateway` — đúng cờ ta buộc phải bật để dùng alias:
+
+```go
+// internal/agents/detection.go:21
+const aIGatewayFallbackModel = "openai/gpt-4.1-nano"
+```
+
+Không có cờ nào tắt. **Cách vô hiệu hoá** (đã áp dụng): đăng ký chính tên đó
+trong `litellm_config.yaml` và trỏ về **cùng model, cùng tham số**. SAIST
+tưởng nó đã đổi model, thực tế không có gì đổi. Kèm theo, `token_logger` đánh dấu
+`via_fallback: true` cho từng call đi đường này — biến một confound vô hình thành
+một con số đếm được và báo cáo được.
+
+**3. Tiêu chí "thành công" của orchestrator quá lỏng.** `exit 0 + SARIF khác
+rỗng` nhận nhầm run-02 (1 call LLM, 0 finding) là thành công. Đã siết: đếm dấu
+hiệu 429 trong `stderr.log`, ghi `rate_limit_hits` / `model_fallbacks` / `valid`
+vào `run_meta.json`, và **báo đỏ** khi run dính rate limit.
+
+> **Bài học về tính công bằng, quan trọng hơn cả ba lỗi trên:** Metis gọi 399 call
+> mà *không dính 429 lần nào* vì nó chạy **tuần tự**; SAIST chết vì chạy **song
+> song**. Rate limit không chỉ làm hỏng dữ liệu — nó **phạt có hệ thống** tool
+> song song và tha tool tuần tự. Chạy benchmark dưới hạn mức bị siết là tự tạo ra
+> một biến gây nhiễu tỉ lệ thuận với mức độ song song của tool.
+
+### Mọi call rơi về `unknown` — alias bị nuốt trước khi callback chạy
+
+Triệu chứng: chạy SAIST, `calls.jsonl` ghi `"tool": "unknown"` và
+`"model": "gemini-31-flash-lite"` — **không phải** alias `...-saist` đã truyền vào.
+
+Nguyên nhân: khi callback của LiteLLM chạy thì việc định tuyến **đã xong**, và
+`kwargs["model"]` là model **thật** ở phía sau. Alias đã bị thay mất. Mà mọi alias
+đều trỏ về cùng một model thật — nên `kwargs["model"]` về nguyên tắc *không thể*
+phân biệt tool nào.
+
+Alias gốc còn nằm ở `litellm_params.metadata.model_group` và ở body request thô
+(`proxy_server_request.body.model`). `token_logger._requested_alias()` dò lần lượt
+các chỗ đó. Log giờ ghi **cả hai**: `model` (thật) và `requested_model` (alias),
+để Giai đoạn 5 đối chiếu chéo được với `run_meta.json`.
+
+> Bài học chung: trong benchmark, thứ ta *cấu hình* và thứ hệ thống *ghi lại* có
+> thể là hai giá trị khác nhau. Luôn kiểm chứng bằng một call thật rồi đọc log,
+> đừng tin cấu hình trông có vẻ đúng.
+
+### `build constraints exclude all Go files` — SAIST cần cgo
+
+Build SAIST với `CGO_ENABLED=0` sẽ chết với thông báo:
+
+```
+tree-sitter-java/bindings/go: build constraints exclude all Go files in ...
+```
+
+Nghe như thiếu file, thực ra là **thiếu cgo**: SAIST dùng tree-sitter để dựng call
+graph đa file, mà binding Go của tree-sitter là cgo. Tắt cgo thì build constraint
+loại sạch file Go.
+
+Đã đặt `CGO_ENABLED=1` trong `tools/saist.Dockerfile`. Hệ quả kéo theo: binary
+link **động** với glibc, nên tầng chạy phải cùng nền Debian bookworm với
+`golang:1.24`. Đổi tầng chạy sang alpine (musl) hay distroless là gãy lúc chạy —
+và gãy *muộn*, sau khi build đã xanh.
+
+> Không có đường vòng: bỏ tree-sitter đi thì mất chính cross-file context — thế
+> mạnh của SAIST — tức là tự làm yếu tool và phá vỡ tính công bằng của benchmark.
+
 ### Header bị bỏ im lặng — `additional_headers` vs `default_headers`
 
 Provider `vllm` của Metis chỉ nhận **`default_headers`** (xem
@@ -170,12 +257,84 @@ provider khác — đọc thẳng `copy_keys` trong mã nguồn.
 
 ## 9. Xong Giai đoạn 4 khi...
 
-- [x] `stage4_setup_tools.sh` cài được cả hai tool (image Docker + venv).
-- [x] `stage4_run.sh --dry-run` preflight sạch.
-- [ ] Chạy thật xong, mỗi tool có đủ `run-01-cold` … `run-03-warm` với
-      `exit_code: 0` và `raw_output.sarif` khác rỗng.
-- [ ] `llm_calls` trong `run_meta.json` khớp số dòng tăng thêm trong `calls.jsonl`,
-      và cột `tool` trong log không có giá trị `unknown`.
+- [x] Metis cài xong bằng `uv` (venv có binary `metis`).
+- [x] SAIST build xong thành image `sast-bench/saist:pinned` (210MB).
+- [x] `stage4_run.sh --dry-run` chạy đúng: bắt được target sai SHA, alias thiếu
+      trên proxy, và tool chưa cài — đã kiểm chứng bằng cách để nó fail thật.
+- [x] **SAIST chạy thật xong 1 lần** (2026-07-21): `exit_code: 0`, 34s,
+      37 call LLM, 9 finding, SARIF 78KB.
+- [x] `llm_calls` (37) khớp đúng số dòng `calls.jsonl` (37); **37/37 call quy về
+      `datadog-saist`** với `requested_model: gemini-31-flash-lite-saist`,
+      không còn `unknown`.
+- [x] Alias fallback `openai/gpt-4.1-nano` đã trỏ về cùng model và được
+      đánh dấu `via_fallback: true` — kiểm chứng bằng call thật.
+- [x] Key Gemini KHÔNG dính free tier (đã đo: 25 request song song đều 200).
+
+- [x] Metis chạy thật trọn vẹn: 3/3 run valid, 934 call mỗi run.
+- [x] Chạy đủ mẻ hợp lệ: 6/6 run `valid: true`, `rate_limit_hits: 0`, 0 fallback.
+
+
+### ✅ Mẻ chạy hợp lệ đầu tiên (2026-07-21, `gemini-3.1-flash-lite`)
+
+6/6 lần chạy `valid: true`, 0 fallback, 0 call rơi về `unknown`. Tổng **$3.53**, ~9 phút.
+
+| Tool | Lần chạy | Giây | Call LLM | Findings |
+|---|---|---|---|---|
+| arm-metis | cold / warm / warm | 142 / 140 / 181 | 934 / 934 / 934 | 278 / 278 / 278 |
+| datadog-saist | cold / warm / warm | 16 / 11 / 13 | 162 / 174 / 171 | 39 / 43 / 41 |
+
+#### Phát hiện quan trọng: độ ỔN ĐỊNH giữa các lần chạy khác nhau rất xa
+
+Đếm finding **duy nhất** theo bộ ba `(ruleId, file, dòng)` rồi so 3 lần chạy:
+
+| Tool | Mỗi run | Giao cả 3 | Hợp cả 3 | **Ổn định** |
+|---|---|---|---|---|
+| arm-metis | 262 / 263 / 263 | 261 | 264 | **98.9%** |
+| datadog-saist | 39 / 43 / 41 | 29 | 55 | **52.7%** |
+
+> ⚠️ **HAI CON SỐ TRÊN ĐÃ BỊ ĐÍNH CHÍNH** — xem
+> [stage5 §6](stage5-chuan-hoa.md#6-đính-chính-số-liệu-độ-ổn-định-ở-giai-đoạn-4).
+> Khoá `(rule, file, dòng)` không công bằng: Metis chỉ có **một** `ruleId` và 56%
+> `startLine` bằng 1, nên khoá của nó co lại gần bằng "tên file". Tính lại bằng
+> khoá công bằng `(title, file)`: Metis **97.1%**, SAIST **73.2%** — kết luận định
+> tính không đổi nhưng khoảng cách hẹp hơn nhiều (24 điểm, không phải 46).
+
+**SAIST chỉ lặp lại được ~half số finding của chính nó** dù `temperature=0`. Nghĩa là
+một lần chạy duy nhất của SAIST **không đại diện** cho năng lực của nó — báo cáo dựa
+trên 1 run sẽ sai lệch tuỳ vào việc bạn bốc trúng run nào. Đây chính là lý do
+`run.repeats: 3` tồn tại, và bản thân **độ ổn định là một chỉ số chất lượng harness**
+đáng đưa vào báo cáo cuối, không kém gì precision.
+
+> Ghi chú cho Giai đoạn 6 (dedup): Metis báo 278 kết quả nhưng chỉ 262 **duy nhất**
+> -> có trùng lặp NGAY TRONG một lần chạy. Dedup phải làm cả trong-run lẫn giữa-run.
+
+#### Cảnh báo cho Giai đoạn 7 (judge precision)
+
+Metis ra **262** finding, SAIST ra **39** — gấp ~6.7 lần. **Đừng vội kết luận Metis
+giỏi hơn.** Đây đúng là kịch bản "count là metric bẫy" mà [stage0](00-tong-quan.md)
+cảnh báo: cần precision mới biết trong 262 cái đó bao nhiêu là thật.
+
+Thêm một dấu hiệu đáng ngờ: trên `gemini-3-flash-preview` (model **mạnh hơn**), SAIST
+chỉ ra 8/3/11 finding; trên `flash-lite` (**yếu hơn**) nó ra 39/43/41. Model yếu hơn mà
+báo nhiều hơn gấp 4 lần thường có nghĩa là **nhiều false positive hơn**, không phải
+"tìm giỏi hơn". Giai đoạn 7 phải trả lời câu này.
+
+### Hai lưu ý đo lường cho Giai đoạn 5
+
+**1. KHÔNG cộng dồn `latency_s` để báo cáo "thời gian tool".** Ở lần chạy SAIST đo
+thử, tổng `latency_s` của 37 call là **48.5s** trong khi wall clock chỉ **34s**.
+Không mâu thuẫn — SAIST chạy song song (`file-concurrency` mặc định 20). Cộng dồn
+latency sẽ làm tool chạy **song song** trông *chậm hơn* tool chạy **tuần tự**, tức
+ngược hẳn sự thật. Dùng `wall_clock_s` trong `run_meta.json`. Tổng latency chỉ có ý
+nghĩa như thước đo *tổng công* LLM.
+
+**2. Ước tính chi phí phải dựa trên ĐO, không suy từ model cùng họ.** Tôi từng ước
+"cả mẻ dưới $1" bằng cách ngoại suy từ `gemini-3.1-flash-lite`; chạy thật trên
+`gemini-3-flash-preview` thì hết **$17.45 mà chưa xong một nửa** — sai ~70 lần.
+Nguyên nhân: model có reasoning sinh 3,400–5,600 token đầu ra mỗi call, so với ~90
+token của model không reasoning. **Reasoning token tính vào output và quyết định hoá
+đơn.** Trước khi chạy mẻ mới trên model mới, luôn gửi 1 call thật với prompt thật rồi
+đọc `thoughtsTokenCount`.
 
 ➡️ Tiếp theo (Giai đoạn 5): chuẩn hoá SARIF/JSON của mỗi tool về **một schema
 JSONL chung** (file, dòng, CWE, severity, mô tả) rồi gộp token theo tool.

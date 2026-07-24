@@ -19,18 +19,39 @@ target:
 
 # --- MODEL: bộ não LLM dùng chung cho MỌI tool (Giai đoạn 1) -------------------
 model:
-  id: gemini-3.1-flash-lite # cùng 1 model cho tất cả -> loại biến "model khác nhau"
-  # Bản cụ thể mà Google trả về lúc chốt (2026-07-21), ghi lại để tái lập/đối chiếu:
-  # alias "gemini-3.1-flash-lite" -> version "3.1-flash-lite-05-2026".
-  # Google có thể trỏ alias sang bản mới; nếu số liệu lệch bất thường, kiểm tra
-  # trường "modelVersion" trong response trước khi đổ tại tool.
+  id: gemini-3.1-flash-lite   # cùng 1 model cho tất cả -> loại biến "model khác nhau"
+  provider: gemini
+  # User yêu cầu gemini-2.5-flash, NHƯNG cả dòng 2.x đã bị Google gỡ với key mới:
+  #   generateContent -> 404 "no longer available to new users"
+  # (Bẫy: endpoint metadata /models/gemini-2.5-flash VẪN trả 200. Chỉ generateContent
+  #  mới lộ ra. Kiểm tra model tồn tại bằng metadata là KHÔNG ĐỦ.)
+  # gemini-3.1-flash-lite là model rẻ duy nhất còn dùng được, và là bản thay thế
+  # gần nhất về phân khúc.
+  # Lịch sử đổi model (mỗi lần đổi = phải chạy lại toàn bộ, KHÔNG trộn số liệu):
+  #   gemini-2.5-flash -> gemini-3.1-flash-lite : né rate limit
+  #   -> gpt-5.4-nano   : free tier Gemini 15 RPM phá hỏng mẻ chạy
+  #   -> gemini-3-flash-preview : key OpenAI ở Tier 1 chỉ 200k TPM, cũng hỏng nốt;
+  #      user cấp key Gemini MỚI không còn giới hạn free tier (đã đo: 25 request
+  #      song song đều 200, không 429).
+  #
+  # Snapshot cụ thể lúc chốt (xác minh bằng API 2026-07-21).
   version_at_pin: 3.1-flash-lite-05-2026
+  # ĐÃ ĐO bằng prompt SAST THẬT (1 file Java WebGoat, prompt 1,059 token):
+  #   gemini-3.1-flash-lite : thinking 0     token, output 642   -> RẺ
+  #   gemini-3.5-flash      : thinking 1,124 token, output 654
+  #   gemini-3-flash-preview: thinking ~3,400-5,600/call -> mẻ chạy tốn $17+ và
+  #                           chưa xong một nửa. Đây là lý do KHÔNG dùng nó.
+  # Bài học: reasoning token tính vào output và là thứ quyết định hoá đơn. Phải đo
+  # bằng call thật với prompt thật, đừng suy chi phí từ model khác cùng họ.
   # Tham số suy luận cố định. temperature=0 => output ổn định nhất có thể,
   # giúp benchmark tái lập (reproducible). Không phải tool nào cũng cho set,
   # xem cột "controllable" trong bảng tool bên dưới.
   temperature: 0
   top_p: 1
   # Ngân sách context (token) — đặt trần chung nếu tool cho phép.
+  # 1M là context THẬT của gemini-3.1-flash-lite (đã xác minh: inputTokenLimit=1048576).
+  # Đặt cao hơn context thật thì tool có thể nhồi prompt vượt giới hạn và bị API
+  # từ chối giữa chừng.
   max_input_tokens: 1000000
   max_output_tokens: 8192
 
@@ -48,16 +69,16 @@ proxy:
 
 # --- INTERNET POLICY: chốt "không dùng internet" nghĩa là gì -------------------
 #  mode = webtools_off   -> CẤM web search/web fetch trong harness, scanner chỉ
-#                           đọc code local. Gemini hosted VẪN gọi được (mặc định).
+#                           đọc code local. Model hosted VẪN gọi được (mặc định).
 #  mode = airgapped      -> cấm mọi outbound kể cả model -> phải dùng model local,
-#                           Gemini hosted KHÔNG dùng được (đổi kiến trúc).
+#                           model hosted KHÔNG dùng được (đổi kiến trúc).
 #  >>> Mặc định webtools_off. Nếu bạn cần airgapped hoàn toàn, đổi ở đây và
 #      báo mình để thay model.
 internet:
   mode: webtools_off
 
 # --- TOOL MATRIX: bảng các harness/skill SAST đem so ---------------------------
-#  gemini_native: tool có hỗ trợ chạy thẳng trên Gemini không?
+#  byo_model: tool có cho trỏ sang model tuỳ chọn (qua endpoint OpenAI-compatible) không?
 #    yes  -> vào nhóm "so kèo cùng model" (fair).
 #    no   -> khoá cứng model khác (vd Claude); để nhóm riêng hoặc note confound.
 #  language_fit: hợp với Java (target) tới đâu -> cảnh báo apple-to-orange.
@@ -65,7 +86,7 @@ internet:
 tools:
   - id: datadog-saist
     name: SAIST (Datadog)
-    gemini_native: yes
+    byo_model: yes
     controllable: yes          # cho set model/temperature
     two_phase: yes             # có sẵn detect -> validate (lọc FP)
     language_fit: good
@@ -74,13 +95,13 @@ tools:
     enabled: true
     # Alias model riêng trên proxy -> để quy chiếu token về đúng tool.
     # SAIST KHÔNG gắn được header x-tool-name nên bắt buộc dùng alias.
-    model_alias: gemini-3.1-flash-lite-saist
+    model_alias: gemini-31-flash-lite-saist
     runtime: docker            # build/chạy trong Docker (host chưa có Go)
     repo: https://github.com/DataDog/datadog-saist.git
 
   - id: arm-metis
     name: Arm Metis
-    gemini_native: yes         # model-agnostic (local/hosted)
+    byo_model: yes         # model-agnostic (local/hosted)
     controllable: yes
     two_phase: no
     cross_file: tree-sitter    # call graph đa file -> bắt lỗi xuyên file
@@ -90,13 +111,13 @@ tools:
     enabled: true
     # Metis gắn được header x-tool-name (additional_headers trong metis.yaml),
     # nhưng vẫn dùng alias cho nhất quán & làm nguồn quy chiếu dự phòng.
-    model_alias: gemini-3.1-flash-lite-metis
+    model_alias: gemini-31-flash-lite-metis
     runtime: uv                # chạy trên host bằng uv (Python)
     repo: https://github.com/arm/metis.git
 
   - id: vulnhuntr
     name: Vulnhuntr
-    gemini_native: yes
+    byo_model: yes
     controllable: partial
     language_fit: poor         # "primarily Python-focused" -> LỆCH SÂN với Java
     output: json
@@ -106,7 +127,7 @@ tools:
 
   - id: claude-code-security-review
     name: Claude Code Security Review
-    gemini_native: no          # khoá Claude
+    byo_model: no           # khoá Claude
     language_fit: good
     output: sarif
     group: claude_locked       # không so cùng-Gemini được
@@ -114,7 +135,7 @@ tools:
 
   - id: anthropic-defending-code
     name: Anthropic Defending Code harness
-    gemini_native: no          # khoá Claude
+    byo_model: no           # khoá Claude
     language_fit: good
     output: json
     group: claude_locked
@@ -124,3 +145,123 @@ tools:
 run:
   repeats: 3                 # chạy N lần để đo variance (token/time LLM dao động)
   separate_cold_warm: true   # tách lần chạy nguội (cold) và ấm (warm)
+  # Trần thời gian cho MỘT lần chạy của MỘT tool (giây). Quá ngưỡng -> giết tiến
+  # trình và ghi timed_out=true, thay vì treo vô hạn cả mẻ chạy.
+  # Tham chiếu: SAIST ~320s/run, Metis >3400s/run trên model có thinking. Đặt 7200
+  # để Metis chạy trọn vẹn; mẻ trước bị giết oan ở mốc 3600s.
+  timeout_s: 7200
+
+# --- DEDUP: gộp finding trùng (Giai đoạn 6) -----------------------------------
+dedup:
+  # Dung sai số dòng khi coi hai finding là MỘT.
+  # Vì sao cần: SAIST báo cùng một vấn đề ở cùng file nhưng LỆCH DÒNG giữa các lần
+  # chạy. Đo thật (36 nhóm (file,title) xuất hiện ở >=2 run):
+  #     81% lệch 0 dòng, phần còn lại rải rác 3,4,6,7,14,19,24 — KHÔNG có ranh
+  #     giới tự nhiên nào để cắt.
+  # Chọn 10 vì: gom được 92%, và ~10 dòng xấp xỉ thân một hàm Java -> "cùng một
+  # vùng code" là cách giải thích bảo vệ được. Nới lên 50 sẽ gom 100% nhưng bắt
+  # đầu có nguy cơ gộp NHẦM hai lỗ hổng khác nhau trong cùng file.
+  line_tolerance: 10
+  # Finding phải xuất hiện ở ít nhất bao nhiêu lần chạy thì mới coi là "ổn định".
+  # Xuất hiện 1/3 lần là bằng chứng yếu — vẫn đếm, nhưng báo cáo tách riêng.
+  stable_min_runs: 3
+
+# --- JUDGE: chấm precision bằng LLM (Giai đoạn 7) -----------------------------
+judge:
+  # Alias riêng trên proxy -> token chấm điểm KHÔNG lẫn vào chi phí tool.
+  model_alias: gemini-31-flash-lite-judge
+  # Chấm MÙ: không cho judge biết finding đến từ tool nào. Bắt buộc — biết tên
+  # tool là mở đường cho thiên vị, và ta không kiểm chứng được nó có thiên vị không.
+  blind: true
+  # PHẠM VI CHUNG để so công bằng. Đo được: Metis báo 65 finding trong file .js
+  # (43 trong số đó ở thư viện đóng gói sẵn: jquery, bootstrap.min.js, underscore),
+  # còn SAIST không quét .js lần nào. Đó là khác biệt PHẠM VI, không phải năng lực.
+  # Benchmark khai target.language=java, nên bảng xếp hạng chính chỉ tính Java,
+  # không phải mã kiểm thử, không phải thư viện. Phần ngoài phạm vi vẫn chấm
+  # nhưng báo cáo RIÊNG.
+  scope:
+    extensions: [".java"]
+    exclude_test_code: true
+    exclude_vendor: true
+  # Đưa CẢ FILE cho judge khi file đủ nhỏ. Vì sao: 56% số dòng của Metis là rác,
+  # nếu chỉ đưa cửa sổ quanh dòng đó thì judge đọc nhầm chỗ và chấm oan Metis.
+  # File lớn hơn ngưỡng -> cắt cửa sổ quanh dòng khai báo.
+  max_whole_file_lines: 400
+  context_window_lines: 60
+
+# --- PARETO OPTIMIZATION (Giai đoạn 8) ---------------------------------------
+#  Tối ưu vận hành nhưng KHÔNG được đổi model/target/scope hay hy sinh chất lượng
+#  quá dung sai đã chốt. Mọi artifact ghi dưới results/optimization/, không đè
+#  baseline Stage 4-7.
+stage8:
+  active_profile: balanced-v1
+  budget_usd: 5.0
+  judge_reserve_usd: 0.25
+  min_resource_improvement: 0.10
+  max_resource_regression: 0.05
+  quality_floor:
+    arm-metis:
+      precision: 0.751
+      recall_lessons: 12
+      stable_tp: 144
+    datadog-saist:
+      precision: 0.871
+      recall_lessons: 4
+      stable_tp: 28
+  profiles:
+    balanced-v1:
+      arm-metis:
+        max_workers: 12
+        # Gitignore-style: pattern không có slash khớp basename ở mọi cấp.
+        review_include: "*.java"
+        review_exclude:
+          - "**/src/test/"
+          - "**/src/it/"
+          - "**/test/"
+          - "**/tests/"
+      datadog-saist:
+        file_concurrency: 25
+
+# --- GROUND TRUTH: đo recall (Giai đoạn 7b) -----------------------------------
+#  WebGoat KHÔNG phát hành danh sách máy đọc được về "dòng nào có lỗ hổng gì".
+#  Thứ nó có là cấu trúc thư mục lessons/<tên>/ — mỗi lesson dạy MỘT lớp lỗ hổng.
+#  Nên đây là recall Ở MỨC LESSON, một xấp xỉ THÔ, không phải recall thật ở mức
+#  dòng. Phải ghi rõ trong báo cáo: "tool tìm được lỗ hổng đúng lớp trong lesson
+#  dạy lớp đó", KHÔNG phải "tool tìm được đúng lỗ hổng mà đề bài cài".
+#
+#  Lesson không có CWE kỳ vọng (intro/tutorial, không cài lỗ hổng) -> để null và
+#  LOẠI khỏi mẫu số. Tính chúng vào là phạt oan cả hai tool.
+ground_truth:
+  granularity: lesson        # không phải "line" — đừng báo cáo nhầm
+  lessons:
+    sqlinjection:        CWE-89
+    xss:                 CWE-79
+    pathtraversal:       CWE-22
+    xxe:                 CWE-611
+    deserialization:     CWE-502
+    csrf:                CWE-352
+    ssrf:                CWE-918
+    idor:                CWE-639
+    jwt:                 CWE-347
+    cryptography:        CWE-327
+    insecurelogin:       CWE-319
+    missingac:           CWE-862
+    authbypass:          CWE-287
+    hijacksession:       CWE-384
+    passwordreset:       CWE-640
+    securepasswords:     CWE-521
+    logging:             CWE-117
+    spoofcookie:         CWE-565
+    vulnerablecomponents: CWE-1104
+    htmltampering:       CWE-602
+    clientsidefiltering: CWE-200
+    bypassrestrictions:  CWE-602
+    # --- không phải lesson lỗ hổng: loại khỏi mẫu số ---
+    chromedevtools:      null
+    httpbasics:          null
+    httpproxies:         null
+    webgoatintroduction: null
+    webwolfintroduction: null
+    lessontemplate:      null
+    cia:                 null
+    challenges:          null    # tổng hợp nhiều lớp, không quy về 1 CWE

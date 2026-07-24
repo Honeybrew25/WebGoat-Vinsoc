@@ -1,0 +1,285 @@
+{
+  "benchmark": {
+    "active_profile": "balanced-v1",
+    "language": "java",
+    "model": {
+      "id": "gemini-3.1-flash-lite",
+      "max_input_tokens": 1000000,
+      "max_output_tokens": 8192,
+      "provider": "gemini",
+      "temperature": 0,
+      "top_p": 1,
+      "version_at_pin": "3.1-flash-lite-05-2026"
+    },
+    "repeats": 3,
+    "scope": {
+      "exclude_test_code": true,
+      "exclude_vendor": true,
+      "extensions": [
+        ".java"
+      ]
+    },
+    "target_name": "WebGoat",
+    "target_ref": "v2025.3",
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f"
+  },
+  "blind_spots": [
+    {
+      "expected_cwe": "CWE-384",
+      "lesson": "hijacksession"
+    },
+    {
+      "expected_cwe": "CWE-602",
+      "lesson": "htmltampering"
+    },
+    {
+      "expected_cwe": "CWE-319",
+      "lesson": "insecurelogin"
+    },
+    {
+      "expected_cwe": "CWE-117",
+      "lesson": "logging"
+    },
+    {
+      "expected_cwe": "CWE-521",
+      "lesson": "securepasswords"
+    },
+    {
+      "expected_cwe": "CWE-565",
+      "lesson": "spoofcookie"
+    },
+    {
+      "expected_cwe": "CWE-918",
+      "lesson": "ssrf"
+    },
+    {
+      "expected_cwe": "CWE-1104",
+      "lesson": "vulnerablecomponents"
+    }
+  ],
+  "budget": {
+    "actual_spend_usd": 1.872177,
+    "cap_usd": 5.0,
+    "judge_spend_usd": 0.001061,
+    "passed": true,
+    "run_spend_usd": 1.871116
+  },
+  "findings": {
+    "cross_tool_matches": 34,
+    "per_tool": {
+      "arm-metis": {
+        "in_test_code": 23,
+        "no_cwe": 99,
+        "seen_1of3": 4,
+        "seen_2of3": 4,
+        "seen_3of3": 272,
+        "stable": 272,
+        "unique": 280
+      },
+      "datadog-saist": {
+        "in_test_code": 0,
+        "no_cwe": 0,
+        "seen_1of3": 8,
+        "seen_2of3": 8,
+        "seen_3of3": 30,
+        "stable": 30,
+        "unique": 46
+      }
+    }
+  },
+  "judge_sensitivity": {
+    "agreement": 0.8781512605042017,
+    "baseline_precision_by_tool": {
+      "arm-metis": {
+        "independent": 0.7708,
+        "weak": 0.8281
+      },
+      "datadog-saist": {
+        "independent": 0.8913,
+        "weak": 0.9783
+      }
+    },
+    "cohens_kappa": 0.5797101449275364,
+    "n": 238,
+    "scope": "Stage 7 baseline aligned verdict set"
+  },
+  "limitations": [
+    "Recall và F1 là xấp xỉ ở mức lesson, không phải mức dòng.",
+    "Cohen's kappa được đo trên baseline Stage 7, không phải finding mới Stage 8.",
+    "WebGoat cố tình chứa lỗ hổng và không đại diện cho mọi codebase production.",
+    "Precision phụ thuộc lựa chọn judge; báo cáo giữ cả hai bộ baseline."
+  ],
+  "provenance": [
+    {
+      "path": "config/benchmark.yaml",
+      "sha256": "ff15b45e9c609c697abce103e1463e945a23a3e5ed0800f6e20cf3e572265c0c"
+    },
+    {
+      "path": "results/findings/normalized/judged-independent.jsonl",
+      "sha256": "02db608c429fb55e317f3349cb0268dc02d3f6c3cc747ee3e856410dac076ffa"
+    },
+    {
+      "path": "results/findings/normalized/judged.jsonl",
+      "sha256": "80fb9f67e91ef9789f99b78b901f3b8bc847bd3a9f4a18115a78935819dfa63a"
+    },
+    {
+      "path": "results/optimization/balanced-v1/profile.json",
+      "sha256": "7600985530c8c57bef80cbade8d6f2d88e4c4336d74b00dac995b6544f7f2900"
+    },
+    {
+      "path": "results/optimization/balanced-v1/stats/cost_by_run.json",
+      "sha256": "77889031f50a49c6da7d9bb1c7433850bed450967ea15b51a04de12f103ca9b1"
+    },
+    {
+      "path": "results/optimization/balanced-v1/stats/final.json",
+      "sha256": "f11ff7519fc71ebd278b94f858a4d41b4169a9777acca13bd443e107682887b1"
+    },
+    {
+      "path": "results/optimization/balanced-v1/stats/judge-state.json",
+      "sha256": "bdfd70b46b04e7bb46c0a8a6b1442592606ad5589b80ba3e651a965186195f34"
+    },
+    {
+      "path": "results/optimization/balanced-v1/stats/judged-final.jsonl",
+      "sha256": "afe4a34d85b58d778c379e68da71ecfc911254280fd7e86ef0e752e717e35c58"
+    },
+    {
+      "path": "results/optimization/balanced-v1/stats/judged-novel.jsonl",
+      "sha256": "336f91780c42a79d11237b8d47c99197b55550b7f2818e54c0e3c9e97b8cca02"
+    },
+    {
+      "path": "results/stats/cost_by_run.json",
+      "sha256": "d64375c14460ac37d7f8e14cc457863bde276d556276c16cd7e1d8b408c00311"
+    },
+    {
+      "path": "results/stats/counts.json",
+      "sha256": "3dedf305ecf028a437fd8eefae84f1ca2ccce0bb036445cfea652d7e59cd997a"
+    },
+    {
+      "path": "results/stats/judge_agreement.json",
+      "sha256": "4cf4bc60a6f90efd97bfb2f96779623c1613242a16bf8c67078380a4be14262c"
+    },
+    {
+      "path": "results/stats/precision-independent.json",
+      "sha256": "c8acdcb13137c391d459d1577dee4eee439b330c8952e0232723e63d00388dde"
+    },
+    {
+      "path": "results/stats/precision.json",
+      "sha256": "725ec2d562f6d71bf530ab0494f04e2a5f7c9ad518c729cdc5bf5a12bb33803b"
+    },
+    {
+      "path": "results/stats/recall.json",
+      "sha256": "cfba485cf9797438f6bd50f2473f511212018f2bbc1b608c7ce03814dabd712b"
+    }
+  ],
+  "quality": {
+    "arm-metis": {
+      "approximate_f1": 0.6689847009735744,
+      "fp": 44,
+      "judged": 192,
+      "lessons_hit": [
+        "authbypass",
+        "bypassrestrictions",
+        "clientsidefiltering",
+        "cryptography",
+        "csrf",
+        "deserialization",
+        "idor",
+        "missingac",
+        "passwordreset",
+        "pathtraversal",
+        "sqlinjection",
+        "xss",
+        "xxe"
+      ],
+      "precision": 0.7708333333333334,
+      "recall_denominator": 22,
+      "recall_fraction": 0.5909090909090909,
+      "recall_lessons": 13,
+      "stable_tp": 146,
+      "tp": 148
+    },
+    "datadog-saist": {
+      "approximate_f1": 0.3605980650835532,
+      "fp": 6,
+      "judged": 47,
+      "lessons_hit": [
+        "csrf",
+        "jwt",
+        "pathtraversal",
+        "sqlinjection",
+        "xss"
+      ],
+      "precision": 0.8723404255319149,
+      "recall_denominator": 22,
+      "recall_fraction": 0.22727272727272727,
+      "recall_lessons": 5,
+      "stable_tp": 30,
+      "tp": 41
+    }
+  },
+  "recommendations": {
+    "ci_gate": {
+      "reason_metrics": [
+        "precision",
+        "wall_clock_s",
+        "cost_usd"
+      ],
+      "tool": "datadog-saist"
+    },
+    "combined": {
+      "schedule": {
+        "nightly_or_release": "arm-metis",
+        "per_pr": "datadog-saist"
+      }
+    },
+    "deep_review": {
+      "reason_metrics": [
+        "recall_lessons",
+        "tp",
+        "approximate_f1"
+      ],
+      "tool": "arm-metis"
+    },
+    "universal_winner": null
+  },
+  "resources": {
+    "per_tool": {
+      "arm-metis": {
+        "baseline_median": {
+          "cost_usd": 0.841598,
+          "total_tokens": 4585821,
+          "wall_clock_s": 142
+        },
+        "optimized_median": {
+          "cost_usd": 0.445274,
+          "total_tokens": 1349793,
+          "wall_clock_s": 58
+        },
+        "relative_delta": {
+          "cost_usd": -0.470918419482936,
+          "total_tokens": -0.7056594664292392,
+          "wall_clock_s": -0.5915492957746479
+        }
+      },
+      "datadog-saist": {
+        "baseline_median": {
+          "cost_usd": 0.182733,
+          "total_tokens": 681769,
+          "wall_clock_s": 13
+        },
+        "optimized_median": {
+          "cost_usd": 0.176114,
+          "total_tokens": 670560,
+          "wall_clock_s": 11
+        },
+        "relative_delta": {
+          "cost_usd": -0.03622224776039366,
+          "total_tokens": -0.016441052614595265,
+          "wall_clock_s": -0.15384615384615385
+        }
+      }
+    },
+    "run_count": 6
+  },
+  "schema_version": 1
+}

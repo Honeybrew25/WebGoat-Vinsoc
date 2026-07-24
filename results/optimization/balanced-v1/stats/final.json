@@ -1,0 +1,81 @@
+{
+  "profile": "balanced-v1",
+  "mode": "final",
+  "run_spend_usd": 1.871116,
+  "judge_spend_usd": 0.001061,
+  "actual_spend_usd": 1.872177,
+  "budget_usd": 5.0,
+  "budget_passed": true,
+  "per_tool": {
+    "arm-metis": {
+      "quality": {
+        "judged": 192,
+        "tp": 148,
+        "fp": 44,
+        "precision": 0.7708333333333334,
+        "recall_lessons": 13,
+        "stable_tp": 146
+      },
+      "quality_gate": {
+        "passed": true,
+        "checks": {
+          "precision": true,
+          "recall_lessons": true,
+          "stable_tp": true
+        }
+      },
+      "resources": {
+        "wall_clock_s": 58,
+        "total_tokens": 1349793,
+        "cost_usd": 0.445274
+      },
+      "resource_gate": {
+        "passed": true,
+        "improved": true,
+        "bounded": true,
+        "relative_delta": {
+          "wall_clock_s": -0.5915492957746479,
+          "total_tokens": -0.7056594664292392,
+          "cost_usd": -0.470918419482936
+        }
+      },
+      "pareto_passed": true,
+      "decision_stage": "final"
+    },
+    "datadog-saist": {
+      "quality": {
+        "judged": 47,
+        "tp": 41,
+        "fp": 6,
+        "precision": 0.8723404255319149,
+        "recall_lessons": 5,
+        "stable_tp": 30
+      },
+      "quality_gate": {
+        "passed": true,
+        "checks": {
+          "precision": true,
+          "recall_lessons": true,
+          "stable_tp": true
+        }
+      },
+      "resources": {
+        "wall_clock_s": 11,
+        "total_tokens": 670560,
+        "cost_usd": 0.176114
+      },
+      "resource_gate": {
+        "passed": true,
+        "improved": true,
+        "bounded": true,
+        "relative_delta": {
+          "wall_clock_s": -0.15384615384615385,
+          "total_tokens": -0.016441052614595265,
+          "cost_usd": -0.03622224776039366
+        }
+      },
+      "pareto_passed": true,
+      "decision_stage": "final"
+    }
+  }
+}

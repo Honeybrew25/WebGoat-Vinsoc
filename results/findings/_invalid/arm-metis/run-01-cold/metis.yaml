@@ -1,0 +1,16 @@
+llm_provider:
+  name: "vllm"                      # provider OpenAI-compatible
+  base_url: "http://127.0.0.1:4000/v1"  # trỏ về LiteLLM proxy
+  model: "gpt-5.4-nano-metis"           # alias -> quy chiếu token về tool này
+  api_key_env: "METIS_PROXY_KEY"
+  # LƯU Ý: provider vllm chỉ nhận "default_headers" (xem CONFIG_SPEC.copy_keys
+  # trong src/metis/providers/vllm.py). Key "additional_headers" CHỈ tồn tại ở
+  # provider "gemini" — đặt nhầm tên thì header bị bỏ im lặng, không báo lỗi,
+  # và mọi call sẽ về tool "unknown" trong calls.jsonl.
+  default_headers:
+    x-tool-name: "arm-metis"     # quy chiếu tool cách 1 (header)
+
+query:
+  model: "gpt-5.4-nano-metis"
+  temperature: 0.0                  # khớp config/benchmark.yaml
+  max_tokens: 8192

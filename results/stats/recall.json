@@ -1,0 +1,85 @@
+{
+  "granularity": "lesson",
+  "denominator": 22,
+  "per_tool": {
+    "arm-metis": {
+      "recall_strict": 14,
+      "recall_loose": 21,
+      "denominator": 22,
+      "lessons_hit_cwe": [
+        "authbypass",
+        "bypassrestrictions",
+        "clientsidefiltering",
+        "cryptography",
+        "csrf",
+        "deserialization",
+        "htmltampering",
+        "idor",
+        "jwt",
+        "passwordreset",
+        "pathtraversal",
+        "sqlinjection",
+        "xss",
+        "xxe"
+      ],
+      "lessons_hit_any": [
+        "authbypass",
+        "bypassrestrictions",
+        "clientsidefiltering",
+        "cryptography",
+        "csrf",
+        "deserialization",
+        "hijacksession",
+        "htmltampering",
+        "idor",
+        "insecurelogin",
+        "jwt",
+        "logging",
+        "missingac",
+        "passwordreset",
+        "pathtraversal",
+        "spoofcookie",
+        "sqlinjection",
+        "ssrf",
+        "vulnerablecomponents",
+        "xss",
+        "xxe"
+      ]
+    },
+    "datadog-saist": {
+      "recall_strict": 5,
+      "recall_loose": 10,
+      "denominator": 22,
+      "lessons_hit_cwe": [
+        "csrf",
+        "jwt",
+        "pathtraversal",
+        "sqlinjection",
+        "xss"
+      ],
+      "lessons_hit_any": [
+        "authbypass",
+        "csrf",
+        "jwt",
+        "logging",
+        "passwordreset",
+        "pathtraversal",
+        "securepasswords",
+        "sqlinjection",
+        "xss",
+        "xxe"
+      ]
+    }
+  },
+  "blind_spots": [
+    "hijacksession",
+    "insecurelogin",
+    "logging",
+    "missingac",
+    "securepasswords",
+    "spoofcookie",
+    "ssrf",
+    "vulnerablecomponents"
+  ],
+  "caveat": "recall ở mức lesson, xấp xỉ thô, có thể cao hơn recall mức dòng"
+}

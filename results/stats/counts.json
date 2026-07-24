@@ -1,0 +1,529 @@
+{
+  "line_tolerance": 10,
+  "stable_min_runs": 3,
+  "per_tool": {
+    "arm-metis": {
+      "unique": 280,
+      "stable": 272,
+      "seen_3of3": 272,
+      "seen_2of3": 4,
+      "seen_1of3": 4,
+      "in_test_code": 23,
+      "no_cwe": 99
+    },
+    "datadog-saist": {
+      "unique": 46,
+      "stable": 30,
+      "seen_3of3": 30,
+      "seen_2of3": 8,
+      "seen_1of3": 8,
+      "in_test_code": 0,
+      "no_cwe": 0
+    }
+  },
+  "per_run": {
+    "arm-metis/run-01-cold": {
+      "raw": 278,
+      "unique": 276
+    },
+    "arm-metis/run-02-warm": {
+      "raw": 278,
+      "unique": 276
+    },
+    "arm-metis/run-03-warm": {
+      "raw": 278,
+      "unique": 276
+    },
+    "datadog-saist/run-01-cold": {
+      "raw": 39,
+      "unique": 38
+    },
+    "datadog-saist/run-02-warm": {
+      "raw": 43,
+      "unique": 38
+    },
+    "datadog-saist/run-03-warm": {
+      "raw": 41,
+      "unique": 38
+    }
+  },
+  "cross_tool_matches": 34,
+  "cross_tool_detail": [
+    {
+      "file": "src/main/java/org/owasp/webgoat/container/AsciiDoctorTemplateResolver.java",
+      "cwe": "CWE-22",
+      "arm-metis": {
+        "title": "Path Traversal in AsciiDoc template loading",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 95,
+        "run_count": 2
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Assignment5.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 44,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/csrf/ForgedReviews.java",
+      "cwe": "CWE-352",
+      "arm-metis": {
+        "title": "Cross-Site Request Forgery (CSRF) vulnerability due to weak anti-CSRF mechanism",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 92,
+        "run_count": 1
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection via JWT 'kid' header",
+        "line": 76,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 76,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java",
+      "cwe": "CWE-22",
+      "arm-metis": {
+        "title": "Path Traversal vulnerability in file retrieval",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 101,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswordsAssignment.java",
+      "cwe": "CWE-79",
+      "arm-metis": {
+        "title": "Reflected Cross-Site Scripting (XSS)",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 63,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection vulnerability via string concatenation",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 57,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 49,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 49,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 47,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 47,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 47,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 47,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 49,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 56,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson10.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 49,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 56,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 46,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 46,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 46,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 46,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 65,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 65,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 45,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 45,
+        "run_count": 2
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 48,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 52,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 48,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 52,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 65,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 65,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection via ORDER BY clause",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 54,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 62,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 142,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 62,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 142,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection in Logging",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 62,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection in Logging",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-sqli",
+        "line": 142,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection in Logging",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 62,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java",
+      "cwe": "CWE-89",
+      "arm-metis": {
+        "title": "SQL Injection in Logging",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 142,
+        "run_count": 3
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java",
+      "cwe": "CWE-79",
+      "arm-metis": {
+        "title": "Reflected Cross-Site Scripting (XSS) vulnerability",
+        "line": 65,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xpathi",
+        "line": 65,
+        "run_count": 2
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java",
+      "cwe": "CWE-79",
+      "arm-metis": {
+        "title": "Reflected Cross-Site Scripting (XSS) vulnerability",
+        "line": 65,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 65,
+        "run_count": 1
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/xss/stored/StoredXssComments.java",
+      "cwe": "CWE-79",
+      "arm-metis": {
+        "title": "Stored Cross-Site Scripting (XSS)",
+        "line": 1,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 83,
+        "run_count": 1
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java",
+      "cwe": "CWE-22",
+      "arm-metis": {
+        "title": "Path Traversal via Unsanitized Username",
+        "line": 32,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 32,
+        "run_count": 2
+      }
+    },
+    {
+      "file": "src/main/java/org/owasp/webgoat/webwolf/FileServer.java",
+      "cwe": "CWE-22",
+      "arm-metis": {
+        "title": "Path Traversal via Unsanitized Filename",
+        "line": 75,
+        "run_count": 3
+      },
+      "datadog-saist": {
+        "title": "datadog/java-xss",
+        "line": 75,
+        "run_count": 3
+      }
+    }
+  ]
+}

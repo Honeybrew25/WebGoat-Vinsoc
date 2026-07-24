@@ -1,0 +1,714 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/DataDog/datadog-saist",
+          "name": "datadog-ai-static-analyzer",
+          "rules": [
+            {
+              "id": "datadog/go-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            }
+          ],
+          "version": "1.0.1"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": ".mvn/wrapper/MavenWrapperDownloader.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/ServerUrlConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/EnvironmentExposure.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/PlaywrightTest.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentHints.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfRootMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultBuilder.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultMessageResponseBodyAdvice.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResult.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/OperatingSystemMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatVersionMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/RegistrationPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/WebGoatLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/UsernameMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/helpers/Authentication.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webwolf/pages/WebWolfLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatTmpDirMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/PluginMessages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/HammerHead.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUsername.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/LessonTrackerInterceptor.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Category.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/DatabaseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/lessons/HttpBasicsLessonPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Assignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Messages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/CourseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Hint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonInfoModel.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Initializable.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Lesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItemType.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItem.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonName.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonTemplateResolver.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/MvcConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/EnvironmentService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonInfoService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjection.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionMitigations.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRF.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/Contact.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponents.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/controller/Welcome.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonResourceScanner.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/ContactImpl.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/MailAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/WebWolfIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/LandingAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webgoatintroduction/WebGoatIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/Comment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Language.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonDataSource.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-cmdi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson13.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingMitigation.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        }
+      ],
+      "results": [
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: attacker-controlled `taskAction` via `stream.defaultReadObject()` during Java deserialization. Sink: command execution at `Process p = Runtime.getRuntime().exec(taskAction);` (line 69). Dataflow: deserialized `taskAction` → validation (`startsWith(\"sleep\"/\"ping\")` and `length()\u003c22`) → direct use as the full argument to `exec`. Sanitization: only weak prefix/length checks; no quoting/escaping or allowlisted exact command + arguments, so metacharacters/OS parsing can still lead to command injection/RCE. Conclusion: true positive."
+            ]
+          },
+          "ruleId": "datadog/java-cmdi",
+          "ruleIndex": 4,
+          "level": "warning",
+          "message": {
+            "text": "Source: attacker-controlled `taskAction` via `stream.defaultReadObject()` during Java deserialization. Sink: command execution at `Process p = Runtime.getRuntime().exec(taskAction);` (line 69). Dataflow: deserialized `taskAction` → validation (`startsWith(\"sleep\"/\"ping\")` and `length()\u003c22`) → direct use as the full argument to `exec`. Sanitization: only weak prefix/length checks; no quoting/escaping or allowlisted exact command + arguments, so metacharacters/OS parsing can still lead to command injection/RCE. Conclusion: true positive."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 1,
+                  "endLine": 69,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "292e743479e6bc1b4f64e03a9514955de92cb62984fcf1fd4259854306cf488f"
+          }
+        }
+      ],
+      "properties": {
+        "tags": [
+          "DATADOG_SAIST_OUTPUT_TOKENS:920",
+          "DATADOG_SAIST_INPUT_TOKENS:42376"
+        ]
+      }
+    }
+  ]
+}

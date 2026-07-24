@@ -55,8 +55,11 @@ setup_metis() {
   tool_sha="$(git -C "$dest" rev-parse HEAD)"
   c_info "Metis commit: $tool_sha"
 
-  c_info "Tạo venv + cài Metis (kèm extra 'gemini')..."
-  ( cd "$dest" && uv venv && uv pip install '.[gemini]' )
+  # KHÔNG cài extra 'gemini': ta dùng provider "vllm" (OpenAI-compatible), nằm
+  # trong package gốc. Extra 'gemini' chỉ kéo thêm langchain-google-genai — thừa,
+  # và dễ gây hiểu nhầm là benchmark đang chạy trên Gemini.
+  c_info "Tạo venv + cài Metis..."
+  ( cd "$dest" && uv venv && uv pip install '.' )
   c_ok "Metis sẵn sàng: $dest/.venv"
   echo "$tool_sha" > "$TOOLS_DIR/.metis_commit"
 }

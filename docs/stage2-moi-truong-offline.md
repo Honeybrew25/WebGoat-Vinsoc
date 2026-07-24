@@ -53,15 +53,15 @@ internet:
   mode: webtools_off   # hoặc: airgapped
 ```
 
-| mode | Web search/fetch trong harness | Gọi Gemini hosted | Kiến trúc |
+| mode | Web search/fetch trong harness | Gọi model hosted | Kiến trúc |
 |---|---|---|---|
 | `webtools_off` *(mặc định)* | ❌ CẤM | ✅ cho phép | Như hiện tại |
 | `airgapped` | ❌ CẤM | ❌ CẤM | Phải đổi **model local** |
 
 - **`webtools_off`**: scanner chỉ được đọc code trong `target/WebGoat`. Nhưng việc
-  call tới Gemini (hosted trên Google) là *bất khả kháng* nếu muốn dùng model đó —
+  call tới model hosted (Google Gemini) là *bất khả kháng* nếu muốn dùng model đó —
   ta chấp nhận. Đây là lựa chọn mặc định, thực dụng.
-- **`airgapped`**: cấm *mọi* outbound kể cả model. Khi đó Gemini hosted **không
+- **`airgapped`**: cấm *mọi* outbound kể cả model. Khi đó model hosted **không
   dùng được**, phải chuyển sang model chạy local (Ollama, vLLM...) — thay đổi lớn.
   Nếu bạn cần cái này, báo mình để bàn lại phần model.
 

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "project_name": "WebGoat",
+  "codebase_path": "D:\\AI VinUni\\WebGoat-Vinsoc\\target\\WebGoat",
+  "started_at": "2026-07-23T02:59:19.660423Z",
+  "ended_at": "2026-07-23T03:00:14.747372Z",
+  "totals": {
+    "input_tokens": 559565,
+    "output_tokens": 54804,
+    "total_tokens": 614369,
+    "by_model": {
+      "gemini-31-flash-lite-metis": {
+        "input_tokens": 559565,
+        "output_tokens": 54804,
+        "total_tokens": 614369
+      }
+    },
+    "by_operation": {
+      "review_code": {
+        "input_tokens": 559565,
+        "output_tokens": 54804,
+        "total_tokens": 614369
+      }
+    }
+  },
+  "commands": [
+    {
+      "scope_id": "review_code:1",
+      "command_name": "review_code",
+      "display_name": "review_code",
+      "sequence": 1,
+      "target": null,
+      "summary": {
+        "input_tokens": 559565,
+        "output_tokens": 54804,
+        "total_tokens": 614369,
+        "by_model": {
+          "gemini-31-flash-lite-metis": {
+            "input_tokens": 559565,
+            "output_tokens": 54804,
+            "total_tokens": 614369
+          }
+        },
+        "by_operation": {
+          "review_code": {
+            "input_tokens": 559565,
+            "output_tokens": 54804,
+            "total_tokens": 614369
+          }
+        }
+      },
+      "cumulative": {
+        "input_tokens": 559565,
+        "output_tokens": 54804,
+        "total_tokens": 614369,
+        "by_model": {
+          "gemini-31-flash-lite-metis": {
+            "input_tokens": 559565,
+            "output_tokens": 54804,
+            "total_tokens": 614369
+          }
+        },
+        "by_operation": {
+          "review_code": {
+            "input_tokens": 559565,
+            "output_tokens": 54804,
+            "total_tokens": 614369
+          }
+        }
+      },
+      "completed_at": "2026-07-23T03:00:14.746985Z"
+    }
+  ]
+}

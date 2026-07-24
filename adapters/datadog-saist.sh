@@ -26,6 +26,12 @@ PROXY_HOST_FROM_CONTAINER="${PROXY_HOST_FROM_CONTAINER/localhost/host.docker.int
 # làm hỏng đường dẫn trong container. Tắt tính năng đó đi.
 export MSYS_NO_PATHCONV=1
 
+# Knob Stage 8 là tùy chọn. Mảng rỗng khiến lệnh baseline giữ nguyên hoàn toàn.
+SAIST_TUNING_ARGS=()
+if [[ -n "${SAIST_FILE_CONCURRENCY:-}" ]]; then
+  SAIST_TUNING_ARGS+=(--file-concurrency "$SAIST_FILE_CONCURRENCY")
+fi
+
 # Lưu ý các cờ:
 #   --local-prompts : dùng bộ rule nhúng sẵn trong binary thay vì tải từ API
 #                     Datadog. Cần cho tái lập (rule trên server có thể đổi
@@ -34,11 +40,21 @@ export MSYS_NO_PATHCONV=1
 #                     SAIST, tắt đi là tự làm yếu tool -> so sánh không công bằng.
 #   --detection-model / --validation-model : SAIST có 2 pha detect -> validate.
 #                     Cả hai đều dùng CÙNG alias để mọi token đều quy về tool này.
+#   --ai-gateway    : BẮT BUỘC, dù ta không dùng Datadog AI Gateway. Lý do: SAIST
+#                     chỉ nhận tên model nằm trong danh sách cứng (gemini-2.5-flash,
+#                     gemini-31-flash-lite, ...). Alias của ta không nằm trong đó, và
+#                     GetModelOrPassthrough() chỉ cho phép tên tuỳ ý khi cờ này bật
+#                     (internal/model/models.go:116). Không bật -> lỗi ngay
+#                     "invalid detection model".
+#                     ĐÃ KIỂM CHỨNG cờ này KHÔNG làm lệch phép so sánh: nó chỉ mở
+#                     passthrough tên model, thêm header telemetry (source, org-id)
+#                     và tag; rule/prompt/logic detect giữ nguyên. Với model custom,
+#                     nhánh AI Guard bị bỏ qua (isCustom=true).
 exec docker run --rm \
   --add-host=host.docker.internal:host-gateway \
   -v "$TARGET_DIR":/work/target:ro \
   -v "$RUN_DIR":/out \
-  -e OPENAI_API_KEY="$PROXY_KEY" \
+  -e GEMINI_API_KEY="$PROXY_KEY" \
   sast-bench/saist:pinned \
     --directory /work/target \
     --output /out/raw_output.sarif \
@@ -46,4 +62,6 @@ exec docker run --rm \
     --validation-model "$MODEL_ALIAS" \
     --openai-base-url "$PROXY_HOST_FROM_CONTAINER" \
     --api-key "$PROXY_KEY" \
+    --ai-gateway \
+    "${SAIST_TUNING_ARGS[@]}" \
     --local-prompts

@@ -15,7 +15,13 @@ RUN go mod download
 
 # Chép phần còn lại rồi build
 COPY . .
-RUN CGO_ENABLED=0 go build -o /out/datadog-saist ./cmd/datadog-saist
+# CGO_ENABLED=1 là BẮT BUỘC, không phải tuỳ chọn: SAIST dùng tree-sitter để dựng
+# call graph đa file, mà binding Go của tree-sitter là cgo. Đặt CGO_ENABLED=0 thì
+# build constraint loại sạch file Go và báo "build constraints exclude all Go files"
+# — nghe như thiếu file, thực ra là thiếu cgo.
+# Hệ quả: binary link động với glibc, nên tầng chạy phải cùng nền Debian bookworm
+# như golang:1.24 (xem FROM bên dưới). Đổi sang alpine/distroless là gãy.
+RUN CGO_ENABLED=1 go build -o /out/datadog-saist ./cmd/datadog-saist
 
 # --- Tầng chạy: ảnh gọn, chỉ chứa binary -------------------------------------
 FROM debian:bookworm-slim

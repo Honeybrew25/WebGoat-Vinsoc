@@ -1,0 +1,31 @@
+{
+  "profile": "balanced-v1",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "model": {
+    "id": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "version_at_pin": "3.1-flash-lite-05-2026",
+    "temperature": 0,
+    "top_p": 1,
+    "max_input_tokens": 1000000,
+    "max_output_tokens": 8192
+  },
+  "budget_usd": 5.0,
+  "judge_reserve_usd": 0.25,
+  "knobs": {
+    "arm-metis": {
+      "max_workers": 12,
+      "review_include": "*.java",
+      "review_exclude": [
+        "**/src/test/",
+        "**/src/it/",
+        "**/test/",
+        "**/tests/"
+      ]
+    },
+    "datadog-saist": {
+      "file_concurrency": 25
+    }
+  },
+  "generated_at": "2026-07-23T03:00:36.161832+00:00"
+}

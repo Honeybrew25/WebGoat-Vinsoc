@@ -1,0 +1,3158 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/main/sarif-2.1/schema/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "informationUri": "https://github.com/DataDog/datadog-saist",
+          "name": "datadog-ai-static-analyzer",
+          "rules": [
+            {
+              "id": "datadog/go-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/go-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/java-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-cmdi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-sqli",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xpathi",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            },
+            {
+              "id": "datadog/python-xss",
+              "shortDescription": {
+                "text": ""
+              },
+              "fullDescription": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "DATADOG_RULE_TYPE:datadog-ai-static-analyzer",
+                  "SEVERITY:ERROR",
+                  "CATEGORY:SECURITY"
+                ]
+              }
+            }
+          ],
+          "version": "1.0.1"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": ".mvn/wrapper/MavenWrapperDownloader.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/ServerUrlConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/EnvironmentExposure.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/PlaywrightTest.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AssignmentHints.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfRootMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebWolfMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/UsernameMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatVersionMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/WebGoatTmpDirMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultBuilder.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/WebGoatLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/RegistrationPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/asciidoc/OperatingSystemMacro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webwolf/pages/WebWolfLoginPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResult.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/helpers/Authentication.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/it/java/org/owasp/webgoat/playwright/webgoat/pages/lessons/HttpBasicsLessonPage.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/HammerHead.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/AttackResultMessageResponseBodyAdvice.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/CurrentUsername.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/DatabaseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Messages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/assignments/LessonTrackerInterceptor.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/PluginMessages.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Category.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Hint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Assignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonConnectionInvocationHandler.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItemType.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Initializable.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/Lesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/CourseConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonInfoModel.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonMenuItem.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/lessons/LessonName.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/MvcConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/EnvironmentService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonTemplateResolver.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/HintService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjection.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10a.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidation.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionMitigations.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlOnlyInputValidationOnKeywords.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponents.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/ContactImpl.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/Contact.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/controller/Welcome.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRF.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask1.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson13.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/vulnerablecomponents/VulnerableComponentsLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/WebWolfIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webgoatintroduction/WebGoatIntroduction.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonResourceScanner.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScripting.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/LandingAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson1.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/i18n/Language.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/webwolfintroduction/MailAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/LessonDataSource.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/AsciiDoctorTemplateResolver.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Comment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/Comment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingMitigation.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingQuiz.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/CommentsCache.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/CommentsEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/BlindSendFileAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/CrossSiteScriptingStored.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/StoredCrossSiteScriptingVerifier.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/ContentTypeAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/SimpleXXE.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/User.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-cmdi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson3.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/AjaxAuthenticationEntryPoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cia/CIAQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/NetworkLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cia/CIA.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFilteringAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFiltering.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/controller/StartLesson.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/Cryptography.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ClientSideFilteringFreeAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/XOREncodingAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/SecureDefaultsAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRF.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/ShopEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/NetworkDummy.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/CryptoUtil.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/clientsidefiltering/Salaries.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFConfirmFlag1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/DOMCrossSiteScripting.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/mitigation/CrossSiteScriptingLesson4.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/Review.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/InsecureDeserializationTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/SerializationHelper.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/deserialization/InsecureDeserialization.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/ForgedReviews.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/AuthenticationProvider.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/htmltampering/HtmlTampering.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/Authentication.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/cas/HijackSessionAuthenticationProvider.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/htmltampering/HtmlTamperingTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/hijacksession/HijackSessionAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasics.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpProxies.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsLesson.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson6a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDOR.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDOREditOtherProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORDiffAttributes.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpbasics/HttpBasicsQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOtherProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/UserProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOwnProfileAltUrl.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/idor/IDORViewOwnProfile.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLogin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/insecurelogin/InsecureLoginTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWT.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/server/ParentConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/WebWolfTraceRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/MailboxRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/XXE.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/server/StartWebGoat.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/jwt/JWTController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/MvcConfiguration.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/mailbox/MailboxController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/UserRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/EncodingAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/jwt/JWTToken.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/stored/StoredXssComments.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/UserService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/Requests.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/user/WebWolfUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/WebWolf.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/WebSecurityConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/votes/Views.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderJKUEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/FileServer.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTDecodeEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/votes/Vote.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/lessontemplate/LessonTemplate.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTSecretKeyEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/logging/LogBleedingTask.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/logging/LogSpoofing.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTVotesEndpoint.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/DisplayUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/User.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionAC.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/httpproxies/HttpBasicsInterceptRequest.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACHiddenMenus.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACYourHash.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/PasswordResetEmail.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACYourHashAdmin.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingFunctionACUsers.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/resetlink/PasswordChangeForm.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/PasswordReset.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/QuestionsAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/SimpleMailAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/missingac/MissingAccessControlUserRepository.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/TriedQuestions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/PathTraversal.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/SecurityQuestionAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswords.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadBase.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookie.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadFix.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRemoveUserInput.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionAdvanced.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUpload.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/encoders/EncDec.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileZipSlip.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge8/Assignment8.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionQuiz.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFFeedback.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/spoofcookie/SpoofCookieAssignment.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xpathi"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6b.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/SigningAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/report/ReportCardController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonInfoService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LabelDebugService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LabelService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonProgressService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/LessonMenuService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/SessionService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/LabelDebugger.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/Course.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/service/RestartLessonService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/LessonProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/session/LessonSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserForm.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/AssignmentProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/UserInterceptor.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserProgressRepository.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserSession.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/Scoreboard.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserProgress.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserService.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/UserValidator.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/Challenge1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebGoat.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/users/WebGoatUser.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebSecurityConfig.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/container/WebWolfRedirect.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/AccountVerificationHelper.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/AuthBypass.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFrontendValidation.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/bypassrestrictions/BypassRestrictionsFieldRestrictions.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/Assignment1.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge1/ImageServlet.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/authbypass/VerifyAccount.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge5/Challenge5.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge8/Challenge8.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/PasswordResetLink.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/MD5.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Challenge7.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Email.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Flags.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/FlagController.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/SolutionConstants.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/Flag.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/chromedevtools/ChromeDevTools.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/ChallengeIntro.java"
+          },
+          "length": 0
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/cryptography/HashingAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/LandingPage.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswordsAssignment.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/xss/DOMCrossSiteScriptingVerifier.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/passwordreset/ResetLinkAssignmentForgotPassword.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/challenges/challenge7/Assignment7.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFGetFlag.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallengeLogin.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli,datadog/java-xss"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionChallenge.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-sqli"
+            ]
+          }
+        },
+        {
+          "location": {
+            "uri": "src/main/java/org/owasp/webgoat/lessons/lessontemplate/SampleAttack.java"
+          },
+          "length": 0,
+          "properties": {
+            "tags": [
+              "RULE_SUCCESS:datadog/java-xss"
+            ]
+          }
+        }
+      ],
+      "results": [
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: user-controlled Spring @RequestParam String query. Sink: SQL string execution at line 49 `statement.executeQuery(query)`. Dataflow: completed(query) → injectableQuery(query) → executeQuery(query). Sanitization: none (no validation/escaping/parameterization) and query is used as raw SQL. Conclusion: true SQL injection vulnerability via unparameterized query execution."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: user-controlled Spring @RequestParam String query. Sink: SQL string execution at line 49 `statement.executeQuery(query)`. Dataflow: completed(query) → injectableQuery(query) → executeQuery(query). Sanitization: none (no validation/escaping/parameterization) and query is used as raw SQL. Conclusion: true SQL injection vulnerability via unparameterized query execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson2.java"
+                },
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 1,
+                  "endLine": 49,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "9248be2952a46eec807a0c7abac2fbd6c188444db35c4d45c8596ea4698d7bc8"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: untrusted request parameter `column` from `@RequestParam String column`. Sink: SQL construction/invocation at `connection.prepareStatement(\"... order by \" + column)` on line 54-57 where `column` is concatenated into the `ORDER BY` clause. Dataflow: request param → `sort()` method → string concatenation in query → `prepareStatement()` executes via `statement.executeQuery()`. Sanitization: none (no validation/whitelisting/escaping). Conclusion: concrete SQL injection risk via ORDER BY controllability."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: untrusted request parameter `column` from `@RequestParam String column`. Sink: SQL construction/invocation at `connection.prepareStatement(\"... order by \" + column)` on line 54-57 where `column` is concatenated into the `ORDER BY` clause. Dataflow: request param → `sort()` method → string concatenation in query → `prepareStatement()` executes via `statement.executeQuery()`. Sanitization: none (no validation/whitelisting/escaping). Conclusion: concrete SQL injection risk via ORDER BY controllability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/Servers.java"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1,
+                  "endLine": 54,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "a5516bf717752e8293ccdf0a2831ac71b768f1372763febfc9f4d4a58a9ce9f9"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: attacker-controlled serialized object fields via ObjectInputStream.defaultReadObject() populating taskAction. Sink: Runtime.getRuntime().exec(taskAction) in readObject() (line 69). Dataflow: serialized state → taskAction field → prefix/length check only → passed directly to exec. Sanitization: only startsWith(\"sleep\"/\"ping\") and length\u003c22; no escaping/allowlist of full arguments, so crafted input can alter command arguments/flags. Conclusion: true positive for user-controlled deserialization leading to OS command execution."
+            ]
+          },
+          "ruleId": "datadog/java-cmdi",
+          "ruleIndex": 4,
+          "level": "warning",
+          "message": {
+            "text": "Source: attacker-controlled serialized object fields via ObjectInputStream.defaultReadObject() populating taskAction. Sink: Runtime.getRuntime().exec(taskAction) in readObject() (line 69). Dataflow: serialized state → taskAction field → prefix/length check only → passed directly to exec. Sanitization: only startsWith(\"sleep\"/\"ping\") and length\u003c22; no escaping/allowlist of full arguments, so crafted input can alter command arguments/flags. Conclusion: true positive for user-controlled deserialization leading to OS command execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/dummy/insecure/framework/VulnerableTaskHolder.java"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 1,
+                  "endLine": 69,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "292e743479e6bc1b4f64e03a9514955de92cb62984fcf1fd4259854306cf488f"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: request context leads to AuthenticationException; its message can be derived from attacker-controlled inputs during auth failure. Sink: response.sendError(401, authException.getMessage()) (line 31). Dataflow: authentication failure context → authException.getMessage() → sendError second argument → HTTP body/reason. Sanitization: none (message passed directly). Conclusion: real information disclosure/response content injection risk via attacker-influenced exception messages."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: request context leads to AuthenticationException; its message can be derived from attacker-controlled inputs during auth failure. Sink: response.sendError(401, authException.getMessage()) (line 31). Dataflow: authentication failure context → authException.getMessage() → sendError second argument → HTTP body/reason. Sanitization: none (message passed directly). Conclusion: real information disclosure/response content injection risk via attacker-influenced exception messages."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/container/AjaxAuthenticationEntryPoint.java"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 1,
+                  "endLine": 31,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "551982de906224a613500aac5cd71866624d0bc12e57f5ee0ef974c8598a5c55"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: attacker-controlled URL via HttpServletRequest.getRequestURL().toString(). Sink: String slicing at line 28 (path.substring(..., path.indexOf(\".lesson\"))). Dataflow: request URL -\u003e path -\u003e indexOf/substring indices -\u003e substring called. Sanitization: none; no validation that indexOf(\".lesson\") != -1. If crafted request leads to no \".lesson\" in the URL string, endIndex becomes -1, causing StringIndexOutOfBoundsException and potential DoS. Conclusion: real server-side crash vulnerability."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: attacker-controlled URL via HttpServletRequest.getRequestURL().toString(). Sink: String slicing at line 28 (path.substring(..., path.indexOf(\".lesson\"))). Dataflow: request URL -\u003e path -\u003e indexOf/substring indices -\u003e substring called. Sanitization: none; no validation that indexOf(\".lesson\") != -1. If crafted request leads to no \".lesson\" in the URL string, endIndex becomes -1, causing StringIndexOutOfBoundsException and potential DoS. Conclusion: real server-side crash vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/container/controller/StartLesson.java"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1,
+                  "endLine": 28,
+                  "endColumn": 90
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "eaa8e65da754c3fea8f0db1aba5fc316f7aa30ac96811d4128e304283c927685"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: User-controlled @RequestParam String url (request parameter). Sink: new URL(url).openStream() in SSRFTask2.furBall() line 36 triggers an outbound network request. Dataflow: url -\u003e matches() check (line 34) -\u003e new URL(url).openStream() -\u003e in.readAllBytes(). Sanitization: brittle regex check url.matches(\"http://ifconfig\\\\.pro\") only matches a small literal and is not robust URI/host validation against SSRF bypasses. Conclusion: true SSRF vulnerability."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: User-controlled @RequestParam String url (request parameter). Sink: new URL(url).openStream() in SSRFTask2.furBall() line 36 triggers an outbound network request. Dataflow: url -\u003e matches() check (line 34) -\u003e new URL(url).openStream() -\u003e in.readAllBytes(). Sanitization: brittle regex check url.matches(\"http://ifconfig\\\\.pro\") only matches a small literal and is not robust URI/host validation against SSRF bypasses. Conclusion: true SSRF vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java"
+                },
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 1,
+                  "endLine": 36,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "5d20340891912607b3d1e17eb9e14ba1d0eb294078f70f10ae548180a45a86d0"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: @CurrentUsername String username (user-controlled). Sink: `new File(webGoatHomeDirectory, \"/XXE/log\" + username + \".txt\")` then `new PrintWriter(logFile)` writes to filesystem. Dataflow: username is concatenated into the filename path at line 32 and used to open the file at line 34. Sanitization: none visible (no validation/canonicalization; no stripping of path separators). Conclusion: true path traversal / arbitrary file write risk if username contains `../` or absolute path elements."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: @CurrentUsername String username (user-controlled). Sink: `new File(webGoatHomeDirectory, \"/XXE/log\" + username + \".txt\")` then `new PrintWriter(logFile)` writes to filesystem. Dataflow: username is concatenated into the filename path at line 32 and used to open the file at line 34. Sanitization: none visible (no validation/canonicalization; no stripping of path separators). Conclusion: true path traversal / arbitrary file write risk if username contains `../` or absolute path elements."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 1,
+                  "endLine": 32,
+                  "endColumn": 84
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "9fb484f5ea78d6495464134a5fccc947aa9b31d2709fca481b8f15065cf58e69"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: @CurrentUsername username (user-controlled). Sink: new PrintWriter(logFile) at line 34, which creates/writes to the filesystem based on logFile. Dataflow: webGoatHomeDirectory + \"/XXE/log\" + username + \".txt\" → new File(...) → PrintWriter(logFile). Sanitization: none (no validation/normalization of username or path). Conclusion: path traversal/arbitrary file write is plausible, so this is a true positive."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: @CurrentUsername username (user-controlled). Sink: new PrintWriter(logFile) at line 34, which creates/writes to the filesystem based on logFile. Dataflow: webGoatHomeDirectory + \"/XXE/log\" + username + \".txt\" → new File(...) → PrintWriter(logFile). Sanitization: none (no validation/normalization of username or path). Conclusion: path traversal/arbitrary file write is plausible, so this is a true positive."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/xxe/Ping.java"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 1,
+                  "endLine": 34,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "1d0b167ddd990db69624207db023456aed7ac1f93ed01bd89cf7eb8e432207df"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameter `query` via `@RequestParam String query` (line 37). Sink: `statement.executeUpdate(query)` (line 47) using a dynamically constructed SQL string. Dataflow: `query` → `completed()` → `injectableQuery(query)` → `executeUpdate(query)`. Sanitization: none (no validation/escaping/parameterization). Conclusion: concrete, unparameterized SQL execution matches SQL injection rule; true positive."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameter `query` via `@RequestParam String query` (line 37). Sink: `statement.executeUpdate(query)` (line 47) using a dynamically constructed SQL string. Dataflow: `query` → `completed()` → `injectableQuery(query)` → `executeUpdate(query)`. Sanitization: none (no validation/escaping/parameterization). Conclusion: concrete, unparameterized SQL execution matches SQL injection rule; true positive."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1,
+                  "endLine": 47,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "38ed67d5730c966b3432fc7137fc89ab02dc8c5a06112307ae43b599473399ed"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: `query` comes from HTTP request parameter `@RequestParam String query`.\n\nSink: Line 54 `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` followed by `success(...).output(output.toString()).build()` returns it in the response body.\n\nDataflow: `query` → string concatenation into HTML → `output.toString()` → response.\n\nSanitization: none (no escaping/validation).\nConclusion: This is a true XSS vulnerability because user-controlled content is embedded directly into HTML."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: `query` comes from HTTP request parameter `@RequestParam String query`.\n\nSink: Line 54 `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` followed by `success(...).output(output.toString()).build()` returns it in the response body.\n\nDataflow: `query` → string concatenation into HTML → `output.toString()` → response.\n\nSanitization: none (no escaping/validation).\nConclusion: This is a true XSS vulnerability because user-controlled content is embedded directly into HTML."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson3.java"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1,
+                  "endLine": 54,
+                  "endColumn": 82
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "065920bb2c7bf9ee9d983259c91a3f2abfecbd5258c55f4abcbe4da1f9209943"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameters userid and login_count (completed() -\u003e injectableQuery()). Sink: SQL string concatenation at line 45: `String queryString = \"... userid= \" + accountName;`. Dataflow: untrusted `accountName` (userid) is concatenated into the SQL text used to create the PreparedStatement (lines 45, 48). Sanitization: none for `accountName`; placeholder is only used for Login_Count (setInt), not for userid. Conclusion: true SQL injection vulnerability via concatenated SQL."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameters userid and login_count (completed() -\u003e injectableQuery()). Sink: SQL string concatenation at line 45: `String queryString = \"... userid= \" + accountName;`. Dataflow: untrusted `accountName` (userid) is concatenated into the SQL text used to create the PreparedStatement (lines 45, 48). Sanitization: none for `accountName`; placeholder is only used for Login_Count (setInt), not for userid. Conclusion: true SQL injection vulnerability via concatenated SQL."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5b.java"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 1,
+                  "endLine": 45,
+                  "endColumn": 102
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "5f0d1b70fbefbcb47ea79478ee3711294603e9a14b9a221fce572fc496fa8eda"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameters @RequestParam String name and auth_tan. Sink: statement.execute(queryInjection) at line 65, where the SQL string is executed. Dataflow: name/auth_tan are concatenated into queryInjection (lines 50-55) then passed directly to statement.execute(queryInjection). Sanitization: none (no validation/escaping/parameterization). Conclusion: true SQL injection due to unparameterized query construction/execution."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameters @RequestParam String name and auth_tan. Sink: statement.execute(queryInjection) at line 65, where the SQL string is executed. Dataflow: name/auth_tan are concatenated into queryInjection (lines 50-55) then passed directly to statement.execute(queryInjection). Sanitization: none (no validation/escaping/parameterization). Conclusion: true SQL injection due to unparameterized query construction/execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1,
+                  "endLine": 65,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "b07c2d7861a858b569023b816076f9d97532dfe2b19ec5216d39f649643c7c94"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameters `name` and `auth_tan` in `completed(... )`.\n\nSink: SQL execution using concatenated untrusted input at `statement.execute(queryInjection)` (lines ~63-65) and also via `SqlInjectionLesson8.log(connection, queryInjection)`.\n\nDataflow: `name/auth_tan` → `queryInjection` string concatenation (lines ~50-55) → `statement.execute(queryInjection)`.\n\nSanitization: None (no validation/escaping/prepared statements). Conclusion: This is a true SQL injection vulnerability (intentionally for the lesson)."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameters `name` and `auth_tan` in `completed(... )`.\n\nSink: SQL execution using concatenated untrusted input at `statement.execute(queryInjection)` (lines ~63-65) and also via `SqlInjectionLesson8.log(connection, queryInjection)`.\n\nDataflow: `name/auth_tan` → `queryInjection` string concatenation (lines ~50-55) → `statement.execute(queryInjection)`.\n\nSanitization: None (no validation/escaping/prepared statements). Conclusion: This is a true SQL injection vulnerability (intentionally for the lesson)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson9.java"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1,
+                  "endLine": 65,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "04919b99b8c197c8d113ab3951dc7926c9c7dcf8686cdd79bf4592c2442f75cd"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: Spring @RequestParam inputs `name` and `auth_tan` (user-controlled). Sink: `statement.executeQuery(query)` at line 62. Dataflow: `name`/`auth_tan` are concatenated into `query` (lines 49-54) and passed directly to `executeQuery`. Sanitization: none (no escaping/parameterization). Conclusion: True SQL injection via string-built query execution."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: Spring @RequestParam inputs `name` and `auth_tan` (user-controlled). Sink: `statement.executeQuery(query)` at line 62. Dataflow: `name`/`auth_tan` are concatenated into `query` (lines 49-54) and passed directly to `executeQuery`. Sanitization: none (no escaping/parameterization). Conclusion: True SQL injection via string-built query execution."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1,
+                  "endLine": 62,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "10e4c790620ab2353787cae5447fe8ae24bb610a36fdcceb2775a0b2ee2d33bb"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: request parameters `name` and `auth_tan` (untrusted) used to build `query` via string concatenation. Sink: SQL string for logging `logQuery` built with concatenation and executed by `statement.executeUpdate(logQuery)` (line 142) in `log(... )`. Dataflow: `name/auth_tan` -\u003e `query` -\u003e `log(connection, query)` -\u003e `logQuery` uses `action` -\u003e `executeUpdate(logQuery)`. Sanitization: only replaces single quotes with double quotes (`action.replace('\\'', '\"')`), which is not sufficient to prevent SQL injection. Conclusion: true positive (SQL injection into logging INSERT via concatenated SQL)."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: request parameters `name` and `auth_tan` (untrusted) used to build `query` via string concatenation. Sink: SQL string for logging `logQuery` built with concatenation and executed by `statement.executeUpdate(logQuery)` (line 142) in `log(... )`. Dataflow: `name/auth_tan` -\u003e `query` -\u003e `log(connection, query)` -\u003e `logQuery` uses `action` -\u003e `executeUpdate(logQuery)`. Sanitization: only replaces single quotes with double quotes (`action.replace('\\'', '\"')`), which is not sufficient to prevent SQL injection. Conclusion: true positive (SQL injection into logging INSERT via concatenated SQL)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java"
+                },
+                "region": {
+                  "startLine": 137,
+                  "startColumn": 1,
+                  "endLine": 137,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "37124eb8291fdf22ec0ccb30d095832dc2ba8125cdce0d53e501d20fd236a648"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: request params `name` and `auth_tan` in `completed(...)` passed to `injectableQueryConfidentiality(...)`. Sink: `statement.executeQuery(query);` where `query` is built by concatenating `name` and `auth_tan` into SQL (lines 49-54). Dataflow: untrusted params → string concatenation into `query` → `executeQuery(query)`. Sanitization: none (only `log()` replaces single quotes, but `executeQuery` uses the original `query`). Conclusion: true SQL injection vulnerability."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: request params `name` and `auth_tan` in `completed(...)` passed to `injectableQueryConfidentiality(...)`. Sink: `statement.executeQuery(query);` where `query` is built by concatenating `name` and `auth_tan` into SQL (lines 49-54). Dataflow: untrusted params → string concatenation into `query` → `executeQuery(query)`. Sanitization: none (only `log()` replaces single quotes, but `executeQuery` uses the original `query`). Conclusion: true SQL injection vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson8.java"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1,
+                  "endLine": 62,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "eef4b863c5397ab2f1a9e10867fba377a69d5c73dc82cf83297434be6b03a485"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: userInput `field1` from `@RequestParam String field1`. Sink: HTML construction at line 65 `cart.append(\"\u003cp\u003eWe have charged credit card:\" + field1 + \"\u003cbr /\u003e\" )`, later returned via `...output(cart.toString())` (lines 79/84) from a `@ResponseBody` endpoint. Dataflow: `field1` → string concatenation into `cart` → `cart.toString()` → response body. Sanitization: none (no escaping/encoding). Conclusion: reflected XSS true positive."
+            ]
+          },
+          "ruleId": "datadog/java-xpathi",
+          "ruleIndex": 6,
+          "level": "warning",
+          "message": {
+            "text": "Source: userInput `field1` from `@RequestParam String field1`. Sink: HTML construction at line 65 `cart.append(\"\u003cp\u003eWe have charged credit card:\" + field1 + \"\u003cbr /\u003e\" )`, later returned via `...output(cart.toString())` (lines 79/84) from a `@ResponseBody` endpoint. Dataflow: `field1` → string concatenation into `cart` → `cart.toString()` → response body. Sanitization: none (no escaping/encoding). Conclusion: reflected XSS true positive."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1,
+                  "endLine": 65,
+                  "endColumn": 73
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "302383f5d9e08acf69cc3e8a245999b0d35d15522db351ae61cca6af354a54da"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: untrusted user inputs from Spring @RequestParam, especially `field1` (and `field2`). Sink: `.output(cart.toString())` at lines 79/84 and 90, where `cart` contains `cart.append(\"...\" + field1 + \"...\" )` at line 65. Dataflow: `field1` → `cart.append(... + field1 + ...)` → `cart.toString()` → `AttackResult.output(...)` → HTTP response via @RestController/@ResponseBody. Sanitization: none on `field1` before concatenation. Conclusion: reflected XSS is present if the frontend renders output as HTML."
+            ]
+          },
+          "ruleId": "datadog/java-xpathi",
+          "ruleIndex": 6,
+          "level": "warning",
+          "message": {
+            "text": "Source: untrusted user inputs from Spring @RequestParam, especially `field1` (and `field2`). Sink: `.output(cart.toString())` at lines 79/84 and 90, where `cart` contains `cart.append(\"...\" + field1 + \"...\" )` at line 65. Dataflow: `field1` → `cart.append(... + field1 + ...)` → `cart.toString()` → `AttackResult.output(...)` → HTTP response via @RestController/@ResponseBody. Sanitization: none on `field1` before concatenation. Conclusion: reflected XSS is present if the frontend renders output as HTML."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/xss/CrossSiteScriptingLesson5a.java"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 1,
+                  "endLine": 90,
+                  "endColumn": 7
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "3b7abff95e9789c6d692549323db7e29665da57f06da70c184e2efab973a69c6"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameter `editor` in `completed(@RequestParam String editor)`. Sink: in-memory Java code compilation via `compiler.getTask(..., fileObjects)` where `fileObjects` comes from `getJavaFileContentsAsString(s)` (line 98) and the provided code is embedded into `javaFileContents` (lines 107-110, `+ s +`). Dataflow: editor -\u003e `replaceAll`/newline stripping -\u003e `compileFromString(editor)` -\u003e `getJavaFileContentsAsString(editor)` -\u003e embedded into source string -\u003e `getTask(...).call()`. Sanitization: only strips HTML-like tags/newlines; no validation/escaping to prevent arbitrary code/compile-time side effects. Conclusion: true positive for in-process dynamic compilation from user-controlled input."
+            ]
+          },
+          "ruleId": "datadog/java-xpathi",
+          "ruleIndex": 6,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameter `editor` in `completed(@RequestParam String editor)`. Sink: in-memory Java code compilation via `compiler.getTask(..., fileObjects)` where `fileObjects` comes from `getJavaFileContentsAsString(s)` (line 98) and the provided code is embedded into `javaFileContents` (lines 107-110, `+ s +`). Dataflow: editor -\u003e `replaceAll`/newline stripping -\u003e `compileFromString(editor)` -\u003e `getJavaFileContentsAsString(editor)` -\u003e embedded into source string -\u003e `getTask(...).call()`. Sanitization: only strips HTML-like tags/newlines; no validation/escaping to prevent arbitrary code/compile-time side effects. Conclusion: true positive for in-process dynamic compilation from user-controlled input."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/mitigation/SqlInjectionLesson10b.java"
+                },
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 1,
+                  "endLine": 98,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "50471faca3e3c78203e606f47b951ca3ae9dac3741ecdd462c2a31e024c7d464"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameter `userid_6a` mapped to `userId` in `completed(...)`, passed to `injectableQuery(accountName)`. Sink: SQL concatenation into `query` at line 54, which is executed at `statement.executeQuery(query)` on line 72. Dataflow: `userId` -\u003e `accountName` -\u003e `query = ... '"
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameter `userid_6a` mapped to `userId` in `completed(...)`, passed to `injectableQuery(accountName)`. Sink: SQL concatenation into `query` at line 54, which is executed at `statement.executeQuery(query)` on line 72. Dataflow: `userId` -\u003e `accountName` -\u003e `query = ... '"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1,
+                  "endLine": 54,
+                  "endColumn": 82
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "202fab6569d69b27aaaeaa887f481a148b4fe76d48d4f25b7f58c36d50678959"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request parameter `userid_6a` (completed(...)). Dataflow: `userId` → `injectableQuery(accountName)` → builds `query` via string concatenation at line 54 → passed to `executeSqlInjection(..., query)`. Sink: `statement.executeQuery(query)` at line 72 executes the raw, tainted SQL string. Sanitization: none; only a regex check in `unionQueryChecker` (not sufficient validation/escaping) before execution and no PreparedStatement/parameterization."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request parameter `userid_6a` (completed(...)). Dataflow: `userId` → `injectableQuery(accountName)` → builds `query` via string concatenation at line 54 → passed to `executeSqlInjection(..., query)`. Sink: `statement.executeQuery(query)` at line 72 executes the raw, tainted SQL string. Sanitization: none; only a regex check in `unionQueryChecker` (not sufficient validation/escaping) before execution and no PreparedStatement/parameterization."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/advanced/SqlInjectionLesson6a.java"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1,
+                  "endLine": 72,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "e252c936dd2983c37efdbc1f2f9968aeac6125652e868d9b5418b32c5b7a33fe"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: attacker-controlled JWT header `kid` via `JwsHeader header` and `header.get(\"kid\")`. Sink: SQL execution at `connection.createStatement().executeQuery(\"SELECT key ... id = '\" + kid + \"'\")` (line 76). Dataflow: `kid` (untrusted) → string concatenation into SQL literal → `executeQuery`. Sanitization: none (no validation/escaping/parameterization). Conclusion: confirmed true SQL injection vulnerability."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: attacker-controlled JWT header `kid` via `JwsHeader header` and `header.get(\"kid\")`. Sink: SQL execution at `connection.createStatement().executeQuery(\"SELECT key ... id = '\" + kid + \"'\")` (line 76). Dataflow: `kid` (untrusted) → string concatenation into SQL literal → `executeQuery`. Sanitization: none (no validation/escaping/parameterization). Conclusion: confirmed true SQL injection vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/jwt/claimmisuse/JWTHeaderKIDEndpoint.java"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 1,
+                  "endLine": 76,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "8088e023b7737bcb8116708afff18de5c75606bc6a7bc04d71e8f11c4c7fc3ca"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: attacker-controlled HTTP request URL (HttpServletRequest.getRequestURL()). Sink: logging via log.trace(\"Incoming request for: {}\", request.getRequestURL()) at line 30. Dataflow: request.getRequestURL() → log formatter argument → trace log output. Sanitization: none apparent; values are not escaped/validated before logging. Conclusion: can enable log injection/forgery if URL contains newline/control characters."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: attacker-controlled HTTP request URL (HttpServletRequest.getRequestURL()). Sink: logging via log.trace(\"Incoming request for: {}\", request.getRequestURL()) at line 30. Dataflow: request.getRequestURL() → log formatter argument → trace log output. Sanitization: none apparent; values are not escaped/validated before logging. Conclusion: can enable log injection/forgery if URL contains newline/control characters."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/webwolf/requests/LandingPage.java"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 1,
+                  "endLine": 30,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "8653953c721145b7bab0d66bfcfc2c52ddef779894f227b392d52fc3e23df420"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: user-controlled @RequestParam String password. Sink: HTML response body built with password/feedback+suggestions in StringBuilder (e.g., line 35 output.append(\"\u003cb\u003eLength: \u003c/b\u003e\" + password.length() ...); loop line 69 output.append(\"\u003cli\u003e\" + sug + \"\u003c/li\u003e\")) then written via output(output.toString()) in success/failed builder (line 75/76). Dataflow: password → StringBuilder HTML → AttackResult.output → HTTP response (/ @ResponseBody). Sanitization: none (no escaping/encoding). Conclusion: reflected XSS likely if rendered as HTML."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: user-controlled @RequestParam String password. Sink: HTML response body built with password/feedback+suggestions in StringBuilder (e.g., line 35 output.append(\"\u003cb\u003eLength: \u003c/b\u003e\" + password.length() ...); loop line 69 output.append(\"\u003cli\u003e\" + sug + \"\u003c/li\u003e\")) then written via output(output.toString()) in success/failed builder (line 75/76). Dataflow: password → StringBuilder HTML → AttackResult.output → HTTP response (/ @ResponseBody). Sanitization: none (no escaping/encoding). Conclusion: reflected XSS likely if rendered as HTML."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/securepasswords/SecurePasswordsAssignment.java"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 1,
+                  "endLine": 69,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "ae61b28f352afb9be21cfd0725970e54d5af53cad99650d1799c888c5e9a5606"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP query parameter `id` via `request.getParameter(\"id\")` (user-controlled). Sink: filesystem path construction `new File(catPicturesDirectory, ... )` at line 101, followed by read/existence checks `catPicture.exists()` (line 108) and file disclosure `FileCopyUtils.copyToByteArray(catPicture)` (lines 106/112). Dataflow: `id` → filename string `id + \".jpg\"` → `catPicture` → read if name/existence checks pass. Sanitization: only checks raw `queryParams` for \"..\" or \"/\" (line 94); this is incomplete and doesn’t properly validate `id` or account for encoding/alternate traversal encodings. Conclusion: true path traversal leading to unauthorized file read."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP query parameter `id` via `request.getParameter(\"id\")` (user-controlled). Sink: filesystem path construction `new File(catPicturesDirectory, ... )` at line 101, followed by read/existence checks `catPicture.exists()` (line 108) and file disclosure `FileCopyUtils.copyToByteArray(catPicture)` (lines 106/112). Dataflow: `id` → filename string `id + \".jpg\"` → `catPicture` → read if name/existence checks pass. Sanitization: only checks raw `queryParams` for \"..\" or \"/\" (line 94); this is incomplete and doesn’t properly validate `id` or account for encoding/alternate traversal encodings. Conclusion: true path traversal leading to unauthorized file read."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/pathtraversal/ProfileUploadRetrieval.java"
+                },
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 1,
+                  "endLine": 94,
+                  "endColumn": 93
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "a1b220a3acce0e0182e1d2f2e558a4664de94b8eca8b7582e3df0cee258cc6d9"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP form parameter `query` via `completed(@RequestParam String query)`. Sink: HTML string construction in `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` at line 52 (then returned as response via `.output(output.toString())`). Dataflow: query → injectableQuery(query) → concatenated into HTML → included in response body. No escaping/sanitization is applied, so injected HTML/script can lead to reflected XSS. Conclusion: true positive for XSS."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP form parameter `query` via `completed(@RequestParam String query)`. Sink: HTML string construction in `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` at line 52 (then returned as response via `.output(output.toString())`). Dataflow: query → injectableQuery(query) → concatenated into HTML → included in response body. No escaping/sanitization is applied, so injected HTML/script can lead to reflected XSS. Conclusion: true positive for XSS."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 1,
+                  "endLine": 52,
+                  "endColumn": 82
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "1410b93316fcc405afb5af1b098c14c781ca64ef1133bb35c55e5fd4631c12d7"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: Spring @RequestParam String query (user-controlled). Sink: statement.executeUpdate(query) in injectableQuery(Line 46). Dataflow: request parameter query → injectableQuery(query) → directly passed to JDBC Statement.executeUpdate. Sanitization: none (no validation/escaping/parameterization). Conclusion: This is a true SQL injection vulnerability matching the reported SQLi category."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: Spring @RequestParam String query (user-controlled). Sink: statement.executeUpdate(query) in injectableQuery(Line 46). Dataflow: request parameter query → injectableQuery(query) → directly passed to JDBC Statement.executeUpdate. Sanitization: none (no validation/escaping/parameterization). Conclusion: This is a true SQL injection vulnerability matching the reported SQLi category."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 1,
+                  "endLine": 46,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "43f87b759d760cc07b72a20bb8d4e757a0eaa03330e62b277da2d2d4cb12790a"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP parameter `query` (@RequestParam String query). Sink: response content built at `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` and returned via `success(this).output(output.toString()).build()`. Dataflow: query → injectableQuery(query) → string concatenation into HTML → response body. Sanitization: none (no HTML escaping/encoding). Conclusion: confirmed reflected XSS risk; matches requested XSS category."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP parameter `query` (@RequestParam String query). Sink: response content built at `output.append(\"\u003cspan class='feedback-positive'\u003e\" + query + \"\u003c/span\u003e\")` and returned via `success(this).output(output.toString()).build()`. Dataflow: query → injectableQuery(query) → string concatenation into HTML → response body. Sanitization: none (no HTML escaping/encoding). Conclusion: confirmed reflected XSS risk; matches requested XSS category."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson4.java"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 1,
+                  "endLine": 52,
+                  "endColumn": 82
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "ecf7058571e4c521cd70d2507544e686c6942450a803c6444bc317100a146ab2"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: Untrusted HTTP headers—`req.getHeader(\"referer\")` (and `host`). Sink: `refererArr[2]` at line 51 after `String[] refererArr = referer.split(\"/\")` at line 35. Dataflow: attacker-controlled `referer` → `split(\"/\")` → array indexing `refererArr[2]`. Sanitization: none; only special-cases `referer.equals(\"NULL\")`, but if `referer` is present with \u003c3 segments, `refererArr[2]` throws `ArrayIndexOutOfBoundsException`. Conclusion: true positive (DoS via array bounds)."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: Untrusted HTTP headers—`req.getHeader(\"referer\")` (and `host`). Sink: `refererArr[2]` at line 51 after `String[] refererArr = referer.split(\"/\")` at line 35. Dataflow: attacker-controlled `referer` → `split(\"/\")` → array indexing `refererArr[2]`. Sanitization: none; only special-cases `referer.equals(\"NULL\")`, but if `referer` is present with \u003c3 segments, `refererArr[2]` throws `ArrayIndexOutOfBoundsException`. Conclusion: true positive (DoS via array bounds)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/csrf/CSRFGetFlag.java"
+                },
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 1,
+                  "endLine": 51,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "3767d333fe98ca2f4d01fee219c2fff9d9b6e9e479520581a81bc0f26e713d2b"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: user-controlled parameters account/operator/injection -\u003e accountName passed to injectableQuery. Dataflow: account + \" \" + operator + \" \" + injection -\u003e injectableQuery.accountName -\u003e query concatenation at line 48. Sink: statement.executeQuery(query) at line 52. Sanitization: none (no escaping/validation and no PreparedStatement). Conclusion: true SQL injection via concatenated query executed directly."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: user-controlled parameters account/operator/injection -\u003e accountName passed to injectableQuery. Dataflow: account + \" \" + operator + \" \" + injection -\u003e injectableQuery.accountName -\u003e query concatenation at line 48. Sink: statement.executeQuery(query) at line 52. Sanitization: none (no escaping/validation and no PreparedStatement). Conclusion: true SQL injection via concatenated query executed directly."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 1,
+                  "endLine": 52,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "4300d9fbe7fae8b9b56262b8184b5f9d43419e8c06bdfd334f1030f724e73600"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: HTTP request params account/operator/injection (completed()). Sink: building an executable SQL string and executing it: query concatenation at line 48, then connection creates Statement and executeQuery(query) at line 52. Dataflow: accountName -\u003e injectableQuery() argument -\u003e query string concatenation -\u003e executeQuery(query). Sanitization: none (no prepared statement/escaping/validation). Conclusion: true SQL injection via direct string concatenation matching the detector’s category."
+            ]
+          },
+          "ruleId": "datadog/java-sqli",
+          "ruleIndex": 5,
+          "level": "warning",
+          "message": {
+            "text": "Source: HTTP request params account/operator/injection (completed()). Sink: building an executable SQL string and executing it: query concatenation at line 48, then connection creates Statement and executeQuery(query) at line 52. Dataflow: accountName -\u003e injectableQuery() argument -\u003e query string concatenation -\u003e executeQuery(query). Sanitization: none (no prepared statement/escaping/validation). Conclusion: true SQL injection via direct string concatenation matching the detector’s category."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 1,
+                  "endLine": 48,
+                  "endColumn": 102
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "526bf51a209ef479146e3d859a0e501720c4ff9d61f42e4220bc087e5cc439c7"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: request parameters @RequestParam String account/operator/injection. Sink: Statement.executeQuery(query) at line 52, where query is built unsafely at line 48 using string concatenation (\"... last_name = '\" + accountName + \"'\"). Dataflow: request params -\u003e completed(...) -\u003e injectableQuery(account + \" \" + operator + \" \" + injection) -\u003e query concat -\u003e executeQuery(query). Sanitization: none (no validation/escaping/parameterized query). Conclusion: true SQL injection vulnerability."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: request parameters @RequestParam String account/operator/injection. Sink: Statement.executeQuery(query) at line 52, where query is built unsafely at line 48 using string concatenation (\"... last_name = '\" + accountName + \"'\"). Dataflow: request params -\u003e completed(...) -\u003e injectableQuery(account + \" \" + operator + \" \" + injection) -\u003e query concat -\u003e executeQuery(query). Sanitization: none (no validation/escaping/parameterized query). Conclusion: true SQL injection vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+                },
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 1,
+                  "endLine": 48,
+                  "endColumn": 102
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "4a1d3f85e4f3377568a1a2d8e8d4e86577f5392c93435937e4ae2fabaac95b68"
+          }
+        },
+        {
+          "properties": {
+            "tags": [
+              "DATADOG_CONFIDENCE:HIGH",
+              "DATADOG_CONFIDENCE_REASON:Source: user-controlled request params (account, operator, injection) concatenated in completed() -\u003e injectableQuery(). Sink: sql execution via statement.executeQuery(query) in injectableQuery() line 52. Dataflow: account+operator+injection -\u003e accountName -\u003e query string building (line 48) -\u003e executeQuery(query). Sanitization: none (string is directly concatenated into SQL; uses raw Statement not PreparedStatement). Conclusion: confirmed SQL injection true positive."
+            ]
+          },
+          "ruleId": "datadog/java-xss",
+          "ruleIndex": 7,
+          "level": "warning",
+          "message": {
+            "text": "Source: user-controlled request params (account, operator, injection) concatenated in completed() -\u003e injectableQuery(). Sink: sql execution via statement.executeQuery(query) in injectableQuery() line 52. Dataflow: account+operator+injection -\u003e accountName -\u003e query string building (line 48) -\u003e executeQuery(query). Sanitization: none (string is directly concatenated into SQL; uses raw Statement not PreparedStatement). Conclusion: confirmed SQL injection true positive."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/owasp/webgoat/lessons/sqlinjection/introduction/SqlInjectionLesson5a.java"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 1,
+                  "endLine": 52,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "DATADOG_FINGERPRINT": "8fbc95d4e1cde579c3b2622fc156da59a713cdf74f817fb5bf86e6f86a15df68"
+          }
+        }
+      ],
+      "properties": {
+        "tags": [
+          "DATADOG_SAIST_OUTPUT_TOKENS:7337",
+          "DATADOG_SAIST_INPUT_TOKENS:363765"
+        ]
+      }
+    }
+  ]
+}

@@ -55,8 +55,8 @@ WebGoat là **Java/Spring**. Có tool trong bảng (Vulnhuntr) vốn *thiết k�
 sai sân**. Nếu để chung bảng xếp hạng mà không chú thích, kết luận sẽ sai lệch.
 
 Cách xử lý (đã mã hoá trong `config/benchmark.yaml`):
-- Nhóm `fair`: tool hỗ trợ Gemini + hợp Java -> **so trực tiếp**.
-- Nhóm `claude_locked`: tool khoá cứng Claude, không chạy Gemini được -> **để riêng**,
+- Nhóm `fair`: tool cho trỏ sang model tuỳ chọn + hợp Java -> **so trực tiếp**.
+- Nhóm `claude_locked`: tool khoá cứng Claude, không chạy model ta chọn được -> **để riêng**,
   hoặc chấp nhận đổi model và ghi rõ đây là *confound* (biến gây nhiễu).
 - Tool lệch ngôn ngữ (Vulnhuntr) -> tắt mặc định, chỉ bật để tham chiếu.
 
@@ -70,7 +70,19 @@ Cách xử lý (đã mã hoá trong `config/benchmark.yaml`):
    thời gian *khách quan*, không tin số tool tự khai.
 4. **Chạy & đo** ([stage4](stage4-chay-va-do.md)) — orchestrator + adapter cho từng
    tool, chạy nhiều lần (cold/warm), quy chiếu token về đúng tool đã tiêu.
-5→9. Chuẩn hoá JSONL, dedup, judge precision, tối ưu, báo cáo (dựng sau).
+5. **Chuẩn hoá** ([stage5](stage5-chuan-hoa.md)) — gộp output mỗi tool một kiểu về
+   một schema JSONL chung, và quy token/chi phí về từng lần chạy.
+6. **Dedup & đếm** ([stage6](stage6-dedup.md)) — gộp trùng ba tầng (trong-run,
+   giữa-run, giữa-tool), tách finding ổn định khỏi nhiễu một lần.
+7. **Precision** ([stage7](stage7-judge-precision.md)) — LLM-as-judge chấm mù
+   từng finding là TP hay FP; đây là chỗ biến count thô thành kết luận.
+8. **Tối ưu Pareto** ([stage8](stage8-toi-uu-pareto.md)) — giảm resource trong
+   các quality floor đã chốt, giữ baseline nguyên vẹn.
+9. **Báo cáo cuối** ([stage9](stage9-bao-cao-cuoi.md)) — tổng hợp quality,
+   resource, độ nhạy judge và khuyến nghị theo tình huống.
+10. **CI regression gate** ([stage10](stage10-ci-regression.md)) — chạy toàn bộ
+    contract offline trên mỗi pull request và block khi test, artifact,
+    provenance, metric, Pareto, budget, cú pháp hoặc report freshness bị lệch.
 
 > Nguyên tắc xuyên suốt: **định nghĩa trước khi chạy**. Chốt "thắng là gì", chốt
 > biến nào cố định, chốt schema — rồi mới bấm nút. Nếu không, lúc đọc số sẽ cãi nhau.

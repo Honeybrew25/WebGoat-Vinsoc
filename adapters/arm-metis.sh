@@ -20,22 +20,47 @@ else
   exit 1
 fi
 
-# --- Vì sao provider là "vllm" chứ không phải "gemini" ------------------------
-# Metis có provider "gemini" nói giao thức Gemini gốc (generateContent). Proxy
-# LiteLLM của ta đo token ở endpoint OpenAI-compatible (/v1/chat/completions) —
-# đó là nơi callback token_logger chạy. Provider "vllm" của Metis chính là
-# provider OpenAI-compatible: nó nói /v1 chuẩn OpenAI.
-# Chính tài liệu Metis khuyến nghị "front your deployment with a LiteLLM proxy
-# so Metis only ever speaks OpenAI-compatible JSON over a single /v1 endpoint".
-# => Model VẪN là Gemini (proxy định tuyến); chỉ giao thức là OpenAI.
+# --- Vì sao provider là "vllm" chứ không phải "openai" ------------------------
+# Proxy LiteLLM của ta đo token ở endpoint OpenAI-compatible
+# (/v1/chat/completions) — đó là nơi callback token_logger chạy. Metis có nhiều
+# provider nói giao thức này; ta chọn "vllm" vì CONFIG_SPEC của nó BẮT BUỘC khai
+# base_url (required_keys), trong khi provider "openai" mặc định trỏ thẳng
+# api.openai.com. Nếu lỡ tay thiếu base_url với provider "openai", Metis sẽ gọi
+# thẳng OpenAI, VÒNG QUA proxy — call vẫn chạy ngon, chỉ là ta mất sạch số liệu
+# token mà không có dấu hiệu gì báo lỗi.
+# Chính tài liệu Metis cũng khuyến nghị "front your deployment with a LiteLLM
+# proxy so Metis only ever speaks OpenAI-compatible JSON over a single /v1".
+# => Model thật VẪN là gemini-3.1-flash-lite (proxy định tuyến); chỉ khác nhãn provider.
 #
 # --- Vì sao KHÔNG bật index/embeddings ---------------------------------------
 # Index (RAG) của Metis tắt mặc định và cần embedding provider riêng. Bật lên sẽ
 # kéo thêm MỘT model khác (embedding) vào phép đo -> phá vỡ "cùng một model".
 # Giữ tắt và ghi rõ đây là bất đối xứng đã biết (xem docs/stage4-*.md).
 
+# --- Knob Stage 8 (tùy chọn; rỗng = giữ nguyên baseline Stage 4) --------------
+METIS_ENGINE_BLOCK=""
+if [[ -n "${METIS_MAX_WORKERS:-}" || -n "${METIS_REVIEW_INCLUDE:-}" ]]; then
+  METIS_ENGINE_BLOCK="metis_engine:"
+  if [[ -n "${METIS_MAX_WORKERS:-}" ]]; then
+    METIS_ENGINE_BLOCK+=$'\n  max_workers: '"$METIS_MAX_WORKERS"
+  fi
+  if [[ -n "${METIS_REVIEW_INCLUDE:-}" ]]; then
+    METIS_ENGINE_BLOCK+=$'\n  review_code_include_paths:\n    - '"\"$METIS_REVIEW_INCLUDE\""
+  fi
+  if [[ -n "${METIS_REVIEW_EXCLUDES:-}" ]]; then
+    METIS_ENGINE_BLOCK+=$'\n  review_code_exclude_paths:'
+    while IFS= read -r pattern; do
+      if [[ -n "$pattern" ]]; then
+        METIS_ENGINE_BLOCK+=$'\n    - '"\"$pattern\""
+      fi
+    done <<<"$METIS_REVIEW_EXCLUDES"
+  fi
+fi
+
 # Metis đọc metis.yaml từ THƯ MỤC LÀM VIỆC -> sinh file ngay trong RUN_DIR.
 cat > "$RUN_DIR/metis.yaml" <<EOF
+$METIS_ENGINE_BLOCK
+
 llm_provider:
   name: "vllm"                      # provider OpenAI-compatible
   base_url: "${PROXY_BASE_URL}/v1"  # trỏ về LiteLLM proxy
@@ -56,6 +81,9 @@ EOF
 
 export METIS_PROXY_KEY="$PROXY_KEY"
 # Một số build đọc key qua biến chuẩn của provider OpenAI-compatible.
+# LƯU Ý: đây là key của PROXY (LITELLM_MASTER_KEY), KHÔNG phải key nhà cung cấp.
+# Tên biến mang chữ "OPENAI" chỉ vì Metis nói giao thức OpenAI — không liên quan
+# gì tới việc model thật là Gemini hay OpenAI. Đừng đổi thành GEMINI_API_KEY.
 export VLLM_API_KEY="$PROXY_KEY"
 export OPENAI_API_KEY="$PROXY_KEY"
 

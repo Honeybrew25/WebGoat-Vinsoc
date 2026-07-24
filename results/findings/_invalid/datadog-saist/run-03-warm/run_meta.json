@@ -1,0 +1,19 @@
+{
+  "tool": "datadog-saist",
+  "run_index": 3,
+  "phase": "warm",
+  "model_alias": "gpt-5.4-nano-saist",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "wall_clock_s": 49,
+  "exit_code": 1,
+  "timed_out": false,
+  "timeout_s": 3600,
+  "rate_limit_hits": 14,
+  "model_fallbacks": 11,
+  "valid": false,
+  "call_log_line_from": 220,
+  "call_log_line_to": 268,
+  "llm_calls": 49,
+  "started_at": "2026-07-21T06:45:28Z",
+  "output_sarif": "raw_output.sarif"
+}

@@ -1,0 +1,47 @@
+{
+  "job_name": "batches/fyb14qyzj9gufcxfcjoufzvpctlusmep5sti",
+  "model": "gemini-3-flash-preview",
+  "alias": "gemini-3-flash-judge",
+  "effort": "low",
+  "submitted_at": "2026-07-23T03:05:08.949110+00:00",
+  "request_count": 2,
+  "payload_bytes": 12800,
+  "pending_keys": [
+    [
+      "datadog-saist",
+      "src/main/java/org/owasp/webgoat/lessons/jwt/JWTRefreshEndpoint.java",
+      121,
+      "datadog/java-xss"
+    ],
+    [
+      "datadog-saist",
+      "src/main/java/org/owasp/webgoat/lessons/ssrf/SSRFTask2.java",
+      36,
+      "datadog/java-xss"
+    ]
+  ],
+  "last_state": "BATCH_STATE_SUCCEEDED",
+  "collected": true,
+  "batch_stats": {
+    "requestCount": "2",
+    "successfulRequestCount": "2"
+  },
+  "checked_at": "2026-07-23T03:07:32.421836+00:00",
+  "collected_count": 2,
+  "item_errors": [],
+  "usage": {
+    "model": "gemini-3-flash-preview",
+    "billed_items": 2,
+    "input_tokens": 3542,
+    "output_tokens": 117,
+    "total_tokens": 3659,
+    "usage_complete": true,
+    "missing_usage_items": 0,
+    "pricing_usd_per_million": {
+      "input_per_million": 0.25,
+      "output_per_million": 1.5
+    },
+    "estimated_cost_usd": 0.001061
+  },
+  "estimated_cost_usd": 0.001061
+}

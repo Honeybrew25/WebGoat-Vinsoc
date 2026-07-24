@@ -1,0 +1,25 @@
+{
+  "n": 238,
+  "agreement": 0.8782,
+  "cohens_kappa": 0.5797,
+  "weak_file": "judged.jsonl",
+  "independent_file": "judged-independent.jsonl",
+  "independent_label": "gemini-3-flash independent",
+  "weak_lenient_by_tool": {
+    "arm-metis": 18,
+    "datadog-saist": 4
+  },
+  "weak_strict_by_tool": {
+    "arm-metis": 7
+  },
+  "precision_by_tool": {
+    "arm-metis": {
+      "weak": 0.8281,
+      "independent": 0.7708
+    },
+    "datadog-saist": {
+      "weak": 0.9783,
+      "independent": 0.8913
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "project_name": "WebGoat",
+  "codebase_path": "D:\\AI VinUni\\WebGoat-Vinsoc\\target\\WebGoat",
+  "started_at": "2026-07-21T06:46:21.174582Z",
+  "ended_at": "2026-07-21T06:56:44.536961Z",
+  "totals": {
+    "input_tokens": 1808258,
+    "output_tokens": 142247,
+    "total_tokens": 1950505,
+    "by_model": {
+      "gpt-5.4-nano-metis": {
+        "input_tokens": 1808258,
+        "output_tokens": 142247,
+        "total_tokens": 1950505
+      }
+    },
+    "by_operation": {
+      "review_code": {
+        "input_tokens": 1808258,
+        "output_tokens": 142247,
+        "total_tokens": 1950505
+      }
+    }
+  },
+  "commands": [
+    {
+      "scope_id": "review_code:1",
+      "command_name": "review_code",
+      "display_name": "review_code",
+      "sequence": 1,
+      "target": null,
+      "summary": {
+        "input_tokens": 1808258,
+        "output_tokens": 142247,
+        "total_tokens": 1950505,
+        "by_model": {
+          "gpt-5.4-nano-metis": {
+            "input_tokens": 1808258,
+            "output_tokens": 142247,
+            "total_tokens": 1950505
+          }
+        },
+        "by_operation": {
+          "review_code": {
+            "input_tokens": 1808258,
+            "output_tokens": 142247,
+            "total_tokens": 1950505
+          }
+        }
+      },
+      "cumulative": {
+        "input_tokens": 1808258,
+        "output_tokens": 142247,
+        "total_tokens": 1950505,
+        "by_model": {
+          "gpt-5.4-nano-metis": {
+            "input_tokens": 1808258,
+            "output_tokens": 142247,
+            "total_tokens": 1950505
+          }
+        },
+        "by_operation": {
+          "review_code": {
+            "input_tokens": 1808258,
+            "output_tokens": 142247,
+            "total_tokens": 1950505
+          }
+        }
+      },
+      "completed_at": "2026-07-21T06:56:44.536645Z"
+    }
+  ]
+}

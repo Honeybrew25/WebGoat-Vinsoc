@@ -1,0 +1,80 @@
+[
+  {
+    "tool": "arm-metis",
+    "run": "run-01-cold",
+    "phase": "cold",
+    "wall_clock_s": 142,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 934,
+    "input_tokens": 4450890,
+    "output_tokens": 134931,
+    "cost_usd": 1.315119,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  },
+  {
+    "tool": "arm-metis",
+    "run": "run-02-warm",
+    "phase": "warm",
+    "wall_clock_s": 140,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 934,
+    "input_tokens": 4450890,
+    "output_tokens": 135354,
+    "cost_usd": 0.833124,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  },
+  {
+    "tool": "arm-metis",
+    "run": "run-03-warm",
+    "phase": "warm",
+    "wall_clock_s": 181,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 934,
+    "input_tokens": 4450890,
+    "output_tokens": 134867,
+    "cost_usd": 0.841598,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-01-cold",
+    "phase": "cold",
+    "wall_clock_s": 16,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 162,
+    "input_tokens": 668599,
+    "output_tokens": 13170,
+    "cost_usd": 0.186905,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-02-warm",
+    "phase": "warm",
+    "wall_clock_s": 11,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 174,
+    "input_tokens": 660833,
+    "output_tokens": 14986,
+    "cost_usd": 0.182733,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-03-warm",
+    "phase": "warm",
+    "wall_clock_s": 13,
+    "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+    "llm_calls": 171,
+    "input_tokens": 677267,
+    "output_tokens": 14955,
+    "cost_usd": 0.1759,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0
+  }
+]

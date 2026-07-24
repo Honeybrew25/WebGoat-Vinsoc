@@ -1,0 +1,80 @@
+[
+  {
+    "tool": "arm-metis",
+    "run": "run-01-cold",
+    "phase": "cold",
+    "wall_clock_s": 58,
+    "llm_calls": 522,
+    "input_tokens": 1260592,
+    "output_tokens": 89162,
+    "cost_usd": 0.448891,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 1349754
+  },
+  {
+    "tool": "arm-metis",
+    "run": "run-02-warm",
+    "phase": "warm",
+    "wall_clock_s": 55,
+    "llm_calls": 522,
+    "input_tokens": 1260592,
+    "output_tokens": 89201,
+    "cost_usd": 0.445274,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 1349793
+  },
+  {
+    "tool": "arm-metis",
+    "run": "run-03-warm",
+    "phase": "warm",
+    "wall_clock_s": 59,
+    "llm_calls": 522,
+    "input_tokens": 1260592,
+    "output_tokens": 89201,
+    "cost_usd": 0.445274,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 1349793
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-01-cold",
+    "phase": "cold",
+    "wall_clock_s": 11,
+    "llm_calls": 164,
+    "input_tokens": 658755,
+    "output_tokens": 13594,
+    "cost_usd": 0.184089,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 672349
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-02-warm",
+    "phase": "warm",
+    "wall_clock_s": 11,
+    "llm_calls": 173,
+    "input_tokens": 655862,
+    "output_tokens": 14698,
+    "cost_usd": 0.176114,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 670560
+  },
+  {
+    "tool": "datadog-saist",
+    "run": "run-03-warm",
+    "phase": "warm",
+    "wall_clock_s": 11,
+    "llm_calls": 165,
+    "input_tokens": 643878,
+    "output_tokens": 13585,
+    "cost_usd": 0.171474,
+    "via_fallback_calls": 0,
+    "unknown_tool_calls": 0,
+    "total_tokens": 657463
+  }
+]

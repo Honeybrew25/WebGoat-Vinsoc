@@ -1,0 +1,14 @@
+{
+  "tool": "arm-metis",
+  "run_index": 1,
+  "phase": "cold",
+  "model_alias": "gemini-3.1-flash-lite-metis",
+  "target_sha": "c3ed45a733377bc7313b93f57ff518254d81380f",
+  "wall_clock_s": 3421,
+  "exit_code": 127,
+  "call_log_line_from": 40,
+  "call_log_line_to": 0,
+  "llm_calls": -39,
+  "started_at": "2026-07-21T04:31:24Z",
+  "output_sarif": "raw_output.sarif"
+}

@@ -10,6 +10,8 @@
 #    bash scripts/stage4_run.sh                    # chạy mọi tool enabled
 #    bash scripts/stage4_run.sh --tool arm-metis   # chỉ 1 tool
 #    bash scripts/stage4_run.sh --repeats 1        # ghi đè run.repeats
+#    bash scripts/stage4_run.sh --run-index 2      # chỉ chạy đúng run 2
+#    bash scripts/stage4_run.sh --output-root PATH # chỉ nhận results/optimization
 #
 #  Yêu cầu: đã chạy stage2 (target), stage3 (proxy đang bật), stage4_setup_tools.
 # ============================================================================
@@ -21,23 +23,57 @@ CALL_LOG="$ROOT_DIR/$(yaml_get 'proxy.call_log')"
 TARGET_DIR="$ROOT_DIR/$(yaml_get 'target.local_path')"
 TARGET_SHA="$(yaml_get 'target.sha')"
 REPEATS="$(yaml_get 'run.repeats')"
+TIMEOUT_S="$(yaml_get 'run.timeout_s')"
 
 DRY_RUN=0
 ONLY_TOOL=""
+RUN_INDEX=""
+OUTPUT_ROOT="$ROOT_DIR/results/findings"
+OUTPUT_ROOT_EXPLICIT=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --dry-run) DRY_RUN=1; shift ;;
     --tool)    ONLY_TOOL="$2"; shift 2 ;;
     --repeats) REPEATS="$2"; shift 2 ;;
+    --run-index) RUN_INDEX="$2"; shift 2 ;;
+    --output-root)
+      OUTPUT_ROOT="$2"
+      OUTPUT_ROOT_EXPLICIT=1
+      shift 2
+      ;;
     *) c_err "Tham số lạ: $1"; exit 1 ;;
   esac
 done
+
+if [[ -n "$RUN_INDEX" && ! "$RUN_INDEX" =~ ^[1-9][0-9]*$ ]]; then
+  c_err "--run-index phải là số nguyên dương."
+  exit 1
+fi
+
+# Stage 8 được phép tái sử dụng runner nhưng tuyệt đối không được trỏ nhầm vào
+# baseline. Chỉ chấp nhận output tùy chọn dưới results/optimization/.
+if [[ $OUTPUT_ROOT_EXPLICIT -eq 1 ]]; then
+  OUTPUT_ROOT="$(realpath -m "$OUTPUT_ROOT")"
+  case "$OUTPUT_ROOT/" in
+    "$ROOT_DIR/results/optimization/"*) ;;
+    *)
+      c_err "--output-root phải nằm dưới $ROOT_DIR/results/optimization"
+      exit 1
+      ;;
+  esac
+fi
+export BENCH_RESULTS_ROOT="$OUTPUT_ROOT"
 
 # .env chứa LITELLM_MASTER_KEY mà adapter cần để gọi proxy.
 ENV_FILE="$ROOT_DIR/proxy/.env"
 [[ -f "$ENV_FILE" ]] || { c_err "Chưa có proxy/.env — xem docs/stage3-llm-proxy.md"; exit 1; }
 set -a; source "$ENV_FILE"; set +a
 [[ -n "${LITELLM_MASTER_KEY:-}" ]] || { c_err "LITELLM_MASTER_KEY trống."; exit 1; }
+if [[ -z "${GEMINI_API_KEY:-}" ]]; then
+  c_err "GEMINI_API_KEY trong proxy/.env đang trống."
+  c_err "Benchmark dùng gemini-3.1-flash-lite — lấy key ở https://aistudio.google.com/apikey"
+  exit 1
+fi
 
 # ============================================================================
 #  PREFLIGHT — thà dừng ở đây còn hơn chạy 40 phút rồi phát hiện sai cấu hình
@@ -120,7 +156,7 @@ tools_to_run() {
 #  thay vì đoán mò theo mốc thời gian (dễ sai khi chạy nối tiếp nhau).
 run_once() {
   local tool="$1" idx="$2" phase="$3"
-  local run_dir="$ROOT_DIR/results/findings/$tool/run-$(printf '%02d' "$idx")-$phase"
+  local run_dir="$OUTPUT_ROOT/$tool/run-$(printf '%02d' "$idx")-$phase"
   rm -rf "$run_dir"; mkdir -p "$run_dir"
 
   local alias log_before log_after start end status
@@ -136,13 +172,47 @@ run_once() {
     export MODEL_ALIAS="$alias"
     export PROXY_BASE_URL="$BASE_URL"
     export PROXY_KEY="$LITELLM_MASTER_KEY"
-    bash "$ROOT_DIR/adapters/$tool.sh"
+    # timeout: tool treo (ngồi đợi input, kẹt retry vô hạn) sẽ bị giết thay vì
+    # làm đứng cả mẻ chạy. --kill-after: nếu SIGTERM không ăn thì SIGKILL.
+    # Lưu ý với adapter chạy Docker: giết tiến trình `docker run` không đảm bảo
+    # container chết theo, nên có bước dọn container mồ côi ở dưới.
+    timeout --kill-after=30s "$TIMEOUT_S" bash "$ROOT_DIR/adapters/$tool.sh"
   ) >"$run_dir/stdout.log" 2>"$run_dir/stderr.log"
   status=$?
   set -e
   end=$(date +%s)
 
+  # 124 = timeout gửi SIGTERM; 137 = bị SIGKILL sau --kill-after.
+  local timed_out=false
+  if [[ $status -eq 124 || $status -eq 137 ]]; then
+    timed_out=true
+    c_err "[$tool] lần $idx TREO quá ${TIMEOUT_S}s — đã giết."
+    # Container mồ côi vẫn giữ cổng/CPU và làm lần chạy sau đo sai.
+    local orphans
+    orphans="$(docker ps -q --filter ancestor=sast-bench/saist:pinned 2>/dev/null || true)"
+    if [[ -n "$orphans" ]]; then
+      c_warn "Dọn container SAIST mồ côi..."
+      docker kill $orphans >/dev/null 2>&1 || true
+    fi
+    # Metis chạy trên host, KHÔNG chết theo tiến trình cha. Đã xảy ra thật: giết
+    # orchestrator xong mà metis.exe + python con vẫn chạy, khoá luôn thư mục
+    # results/ nên không dọn được. Phải giết cả cây tiến trình.
+    if command -v taskkill >/dev/null 2>&1; then
+      taskkill //F //T //IM metis.exe >/dev/null 2>&1 || true
+    else
+      pkill -f "arm-metis/.venv" >/dev/null 2>&1 || true
+    fi
+  fi
+
   log_after=0; [[ -f "$CALL_LOG" ]] && log_after=$(wc -l < "$CALL_LOG" | tr -d ' ')
+
+  # Đếm dấu hiệu rate limit trong stderr của tool. Một lần chạy dính 429 vẫn có
+  # thể exit=0 và sinh SARIF hợp lệ, nhưng nội dung rỗng -> phải bắt riêng.
+  local rate_limited=0 fallbacks=0
+  if [[ -f "$run_dir/stderr.log" ]]; then
+    rate_limited=$(grep -ciE "429|rate.?limit|RESOURCE_EXHAUSTED" "$run_dir/stderr.log" || true)
+    fallbacks=$(grep -ci "switching to fallback" "$run_dir/stderr.log" || true)
+  fi
 
   # Manifest: mọi thứ Giai đoạn 5 cần để quy chiếu, nằm cạnh chính kết quả.
   cat > "$run_dir/run_meta.json" <<EOF
@@ -154,6 +224,11 @@ run_once() {
   "target_sha": "$TARGET_SHA",
   "wall_clock_s": $((end - start)),
   "exit_code": $status,
+  "timed_out": $timed_out,
+  "timeout_s": $TIMEOUT_S,
+  "rate_limit_hits": $rate_limited,
+  "model_fallbacks": $fallbacks,
+  "valid": $( [[ $status -eq 0 && $rate_limited -eq 0 && -s "$run_dir/raw_output.sarif" ]] && echo true || echo false ),
   "call_log_line_from": $((log_before + 1)),
   "call_log_line_to": $log_after,
   "llm_calls": $((log_after - log_before)),
@@ -162,8 +237,20 @@ run_once() {
 }
 EOF
 
-  if [[ $status -eq 0 && -s "$run_dir/raw_output.sarif" ]]; then
+  if [[ $status -eq 0 && -s "$run_dir/raw_output.sarif" && $rate_limited -eq 0 ]]; then
     c_ok "[$tool] lần $idx xong: $((end - start))s, $((log_after - log_before)) call LLM."
+    # Cảnh báo sớm: 0 call LLM nghĩa là tool đã dùng cache, KHÔNG thật sự quét lại.
+    # Lần chạy như vậy không đo được gì về chi phí -> phải biết ngay, đừng để tới
+    # lúc đọc báo cáo mới phát hiện cột token toàn 0.
+    if [[ $((log_after - log_before)) -eq 0 ]]; then
+      c_warn "[$tool] lần $idx KHÔNG gọi LLM lần nào — nhiều khả năng tool đã cache kết quả."
+    fi
+  elif [[ $rate_limited -gt 0 ]]; then
+    # ĐÃ TỪNG XẢY RA THẬT: tool trả exit=0 với SARIF hợp lệ nhưng chỉ 1 call LLM
+    # và 0 finding, vì bị 429 chặn gần hết. "exit 0 + SARIF khác rỗng" là tiêu chí
+    # QUÁ LỎNG — nó nhận nhầm một lần chạy rỗng là thành công.
+    c_err "[$tool] lần $idx KHÔNG HỢP LỆ: dính rate limit ($rate_limited dấu hiệu trong stderr)."
+    c_err "        Dữ liệu lần này KHÔNG dùng được. Kiểm tra hạn mức API trước khi chạy lại."
   else
     # KHÔNG exit: một tool hỏng không được làm chết cả mẻ chạy. Ghi nhận rồi đi tiếp;
     # Giai đoạn 5 sẽ thấy exit_code != 0 và loại lần chạy này khỏi thống kê.
@@ -181,7 +268,10 @@ main() {
   echo
 
   if [[ $DRY_RUN -eq 1 ]]; then
-    c_ok "--dry-run: preflight sạch. Sẽ chạy các tool sau, mỗi tool $REPEATS lần:"
+    local run_desc="$REPEATS lần"
+    [[ -n "$RUN_INDEX" ]] && run_desc="run $RUN_INDEX"
+    c_ok "--dry-run: preflight sạch. Output: $OUTPUT_ROOT"
+    c_info "Sẽ chạy các tool sau, $run_desc:"
     for t in $(tools_to_run); do echo "    - $t (alias: $(bench_cfg tool "$t" model_alias))"; done
     exit 0
   fi
@@ -189,7 +279,9 @@ main() {
   for tool in $(tools_to_run); do
     echo
     c_info "===== $tool ====="
-    for i in $(seq 1 "$REPEATS"); do
+    local run_indices
+    run_indices="$(if [[ -n "$RUN_INDEX" ]]; then echo "$RUN_INDEX"; else seq 1 "$REPEATS"; fi)"
+    for i in $run_indices; do
       # Lần 1 = cold (cache tool trống), các lần sau = warm.
       # Tách ra vì lần cold gánh chi phí index/embed, trộn chung sẽ thổi phồng
       # thời gian trung bình và làm tool có index trông chậm hơn thực tế.
@@ -199,7 +291,7 @@ main() {
   done
 
   echo
-  c_ok "Chạy xong. Kết quả thô: results/findings/<tool>/run-NN-<phase>/"
+  c_ok "Chạy xong. Kết quả thô: $OUTPUT_ROOT/<tool>/run-NN-<phase>/"
   c_info "Tiếp theo (Giai đoạn 5): chuẩn hoá SARIF/JSON về JSONL chung + gộp token."
 }
 

@@ -19,7 +19,7 @@ không phải con ra nhiều dòng nhất.
 
 ---
 
-## Lộ trình 9 giai đoạn
+## Lộ trình 10 giai đoạn
 
 | GĐ | Tên | Trạng thái | Doc |
 |---|---|---|---|
@@ -27,12 +27,15 @@ không phải con ra nhiều dòng nhất.
 | 1 | Cố định biến để công bằng | ✅ Đã dựng | [docs/stage1-co-dinh-bien.md](docs/stage1-co-dinh-bien.md) |
 | 2 | Dựng môi trường offline | ✅ Đã dựng | [docs/stage2-moi-truong-offline.md](docs/stage2-moi-truong-offline.md) |
 | 3 | LLM proxy đo token/time | ✅ Đã dựng | [docs/stage3-llm-proxy.md](docs/stage3-llm-proxy.md) |
-| 4 | Harness chạy + thu gom | ⏳ Chưa | — |
-| 5 | Chuẩn hoá `findings.jsonl` | ⏳ Chưa | — |
-| 6 | Đếm & dedup | ⏳ Chưa | — |
-| 7 | Precision bằng LLM-as-judge | ⏳ Chưa | — |
-| 8 | Nâng performance | ⏳ Chưa | — |
-| 9 | Báo cáo | ⏳ Chưa | — |
+| 4 | Harness chạy + thu gom | ✅ Hoàn tất 6/6 run hợp lệ | [docs/stage4-chay-va-do.md](docs/stage4-chay-va-do.md) |
+| 5 | Chuẩn hoá `findings.jsonl` | ✅ Đã dựng | [docs/stage5-chuan-hoa.md](docs/stage5-chuan-hoa.md) |
+| 6 | Đếm & dedup | ✅ Đã dựng | [docs/stage6-dedup.md](docs/stage6-dedup.md) |
+| 7 | Precision (judge) | ✅ Đã dựng | [docs/stage7-judge-precision.md](docs/stage7-judge-precision.md) |
+| 7b | Recall (mức lesson) | ✅ Đã dựng | [docs/stage7b-recall.md](docs/stage7b-recall.md) |
+| 7c | Judge độc lập (chống tuần hoàn) | ✅ 238/238; kappa 0.580 | [docs/stage7c-judge-doc-lap.md](docs/stage7c-judge-doc-lap.md) |
+| 8 | Nâng performance | ✅ Hoàn tất; 2/2 tool qua Pareto gate | [docs/stage8-toi-uu-pareto.md](docs/stage8-toi-uu-pareto.md) |
+| 9 | Báo cáo | ✅ Hoàn tất | [docs/stage9-bao-cao-cuoi.md](docs/stage9-bao-cao-cuoi.md) |
+| 10 | CI regression gate | ✅ Hoàn tất | [docs/stage10-ci-regression.md](docs/stage10-ci-regression.md) |
 
 Doc chi tiết từng khái niệm nằm ở [docs/00-tong-quan.md](docs/00-tong-quan.md).
 
@@ -56,7 +59,7 @@ bash scripts/stage3_start_proxy.sh
 bash scripts/stage3_start_proxy.sh --smoke-test
 ```
 
-Sau đó mọi tool SAST được cấu hình trỏ endpoint Gemini về `http://127.0.0.1:4000`
+Sau đó mọi tool SAST được cấu hình trỏ endpoint model về `http://127.0.0.1:4000`
 (xem doc GĐ3) — từ đó token/latency được ghi khách quan vào
 `results/proxy_logs/calls.jsonl`.
 
@@ -65,6 +68,25 @@ Sau đó mọi tool SAST được cấu hình trỏ endpoint Gemini về `http:/
 bash scripts/stage4_setup_tools.sh
 bash scripts/stage4_run.sh --dry-run    # preflight: SHA, proxy, alias, tool đã cài
 bash scripts/stage4_run.sh              # chạy thật
+bash scripts/stage4_status.sh           # xem mẻ chạy đang tới đâu (--watch để tự làm mới)
+
+# GĐ5: chuẩn hoá output mọi tool về một schema chung
+uv run --with pyyaml python scripts/stage5_normalize.py
+
+# GĐ6: dedup (trong-run, giữa-run, giữa-tool) rồi đếm
+uv run --with pyyaml python scripts/stage6_dedup.py
+
+# GĐ7: chấm TP/FP bằng LLM-as-judge (chấm mù, phạm vi Java)
+uv run --with pyyaml python scripts/stage7_judge.py
+
+# GĐ9: tái sinh báo cáo sau khi source artifact thay đổi có chủ đích
+uv run --with pyyaml python scripts/stage9_report.py --write
+
+# GĐ9: kiểm tra report/artifact/provenance/metric/Pareto/budget còn nhất quán
+uv run --with pyyaml python scripts/stage9_report.py --check
+
+# GĐ10: strict regression gate offline dùng local và trên pull request
+uv run --with pyyaml python scripts/stage10_ci_gate.py
 ```
 
 ---
@@ -87,7 +109,7 @@ results/                  <- findings, thống kê, proxy logs
 Trong `config/benchmark.yaml` -> `internet.mode`:
 
 - `webtools_off` (mặc định): cấm web search/fetch trong harness, scanner chỉ đọc
-  code local — nhưng **Gemini hosted vẫn gọi được**.
+  code local — nhưng **model hosted vẫn gọi được**.
 - `airgapped`: cấm mọi outbound kể cả model -> phải đổi sang **model local**,
   kiến trúc khác hẳn.
 

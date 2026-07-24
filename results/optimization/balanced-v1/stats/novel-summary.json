@@ -1,0 +1,10 @@
+{
+  "profile": "balanced-v1",
+  "finalists": [
+    "arm-metis",
+    "datadog-saist"
+  ],
+  "candidate_count": 239,
+  "novel_count": 2,
+  "novel_path": "results\\optimization\\balanced-v1\\stats\\novel.jsonl"
+}
