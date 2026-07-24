@@ -60,6 +60,13 @@ Sau đó mọi tool SAST được cấu hình trỏ endpoint Gemini về `http:/
 (xem doc GĐ3) — từ đó token/latency được ghi khách quan vào
 `results/proxy_logs/calls.jsonl`.
 
+```bash
+# GĐ4: cài tool (một lần, lâu) rồi chạy benchmark
+bash scripts/stage4_setup_tools.sh
+bash scripts/stage4_run.sh --dry-run    # preflight: SHA, proxy, alias, tool đã cài
+bash scripts/stage4_run.sh              # chạy thật
+```
+
 ---
 
 ## Cấu trúc thư mục
@@ -69,6 +76,8 @@ config/benchmark.yaml     <- SINGLE SOURCE OF TRUTH (SHA, model, tool matrix)
 docs/                     <- giải thích cho người mới, từng giai đoạn
 scripts/                  <- script tự động hoá mỗi giai đoạn
 proxy/                    <- cấu hình LiteLLM + logger token
+adapters/                 <- mỗi tool một script "biết cách chạy tool đó" (GĐ4)
+tools/                    <- source các tool SAST được clone/build vào đây (không commit)
 target/                   <- WebGoat được clone vào đây (không commit)
 results/                  <- findings, thống kê, proxy logs
 ```

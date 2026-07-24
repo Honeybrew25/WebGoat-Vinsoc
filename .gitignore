@@ -1,6 +1,13 @@
 # Mã nguồn target được clone tự động (Giai đoạn 2) — không commit vào repo này
 target/
 
+# Source các tool SAST được clone/build tự động (Giai đoạn 4) — không commit.
+# Giữ lại saist.Dockerfile và các file ta tự viết trong tools/.
+tools/*
+!tools/*.Dockerfile
+tools/.saist_commit
+tools/.metis_commit
+
 # Kết quả chạy: findings, thống kê, log proxy
 results/proxy_logs/*.jsonl
 results/findings/**/*.jsonl

@@ -12,6 +12,15 @@ c_ok()   { printf '\033[32m[✓]\033[0m %s\n' "$*"; }
 c_warn() { printf '\033[33m[!]\033[0m %s\n' "$*"; }
 c_err()  { printf '\033[31m[x]\033[0m %s\n' "$*" >&2; }
 
+# Truy vấn benchmark.yaml bằng parser YAML thật (cho list `tools:` mà awk không đọc nổi).
+# Cần `uv` (đã dùng ở GĐ4). Dùng: bench_cfg tools-enabled | bench_cfg tool <id> <field>
+# `tr -d '\r'` là lớp phòng thủ thứ hai: bench_config.py đã ép LF, nhưng bất kỳ
+# công cụ nào chen vào giữa (uv, shim của Windows) cũng có thể trả CRLF, và \r
+# lạc vào biến shell gây lỗi cực khó thấy (chuỗi trông đúng nhưng không khớp).
+bench_cfg() {
+  uv run --quiet --with pyyaml python "$ROOT_DIR/scripts/bench_config.py" "$@" | tr -d '\r'
+}
+
 # Đọc 1 giá trị scalar từ benchmark.yaml mà KHÔNG cần cài thư viện YAML.
 # Chỉ hỗ trợ "key: value" phẳng theo path "parent.child". Đủ cho các trường ta cần.
 # Dùng: yaml_get "target.sha"

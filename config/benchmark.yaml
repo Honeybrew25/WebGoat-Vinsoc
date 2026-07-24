@@ -72,6 +72,11 @@ tools:
     output: sarif
     group: fair                # so kèo cùng-model được
     enabled: true
+    # Alias model riêng trên proxy -> để quy chiếu token về đúng tool.
+    # SAIST KHÔNG gắn được header x-tool-name nên bắt buộc dùng alias.
+    model_alias: gemini-3.1-flash-lite-saist
+    runtime: docker            # build/chạy trong Docker (host chưa có Go)
+    repo: https://github.com/DataDog/datadog-saist.git
 
   - id: arm-metis
     name: Arm Metis
@@ -79,10 +84,15 @@ tools:
     controllable: yes
     two_phase: no
     cross_file: tree-sitter    # call graph đa file -> bắt lỗi xuyên file
-    language_fit: good
+    language_fit: good         # Java NẰM trong 11 ngôn ngữ Metis hỗ trợ (đã xác minh)
     output: sarif
     group: fair
     enabled: true
+    # Metis gắn được header x-tool-name (additional_headers trong metis.yaml),
+    # nhưng vẫn dùng alias cho nhất quán & làm nguồn quy chiếu dự phòng.
+    model_alias: gemini-3.1-flash-lite-metis
+    runtime: uv                # chạy trên host bằng uv (Python)
+    repo: https://github.com/arm/metis.git
 
   - id: vulnhuntr
     name: Vulnhuntr

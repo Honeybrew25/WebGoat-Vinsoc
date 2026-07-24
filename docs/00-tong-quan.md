@@ -68,7 +68,9 @@ Cách xử lý (đã mã hoá trong `config/benchmark.yaml`):
    đúng SHA, cắt web tool để tái lập được.
 3. **LLM proxy** ([stage3](stage3-llm-proxy.md)) — đặt một trạm giữa để đo token &
    thời gian *khách quan*, không tin số tool tự khai.
-4→9. Chạy, chuẩn hoá JSONL, dedup, judge precision, tối ưu, báo cáo (dựng sau).
+4. **Chạy & đo** ([stage4](stage4-chay-va-do.md)) — orchestrator + adapter cho từng
+   tool, chạy nhiều lần (cold/warm), quy chiếu token về đúng tool đã tiêu.
+5→9. Chuẩn hoá JSONL, dedup, judge precision, tối ưu, báo cáo (dựng sau).
 
 > Nguyên tắc xuyên suốt: **định nghĩa trước khi chạy**. Chốt "thắng là gì", chốt
 > biến nào cố định, chốt schema — rồi mới bấm nút. Nếu không, lúc đọc số sẽ cãi nhau.

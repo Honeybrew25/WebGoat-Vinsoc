@@ -7,16 +7,31 @@
 # ============================================================================
 
 # --- Danh sách "model ảo" mà proxy phơi ra cho tool ---------------------------
+#  QUY CHIẾU TOOL (quan trọng): proxy cần biết mỗi call đến từ tool nào.
+#  Cách 1 (ưu tiên): tool gắn header `x-tool-name` — nhưng KHÔNG phải tool nào
+#          cũng cho gắn header (SAIST không cho).
+#  Cách 2 (phổ quát): mỗi tool gọi một ALIAS model riêng. Mọi alias trỏ về CÙNG
+#          một model thật + CÙNG tham số -> công bằng không đổi, chỉ khác cái nhãn.
+#          token_logger.py suy ra tool từ hậu tố alias.
+#  => Alias PHẢI khớp `tools[].model_alias` trong config/benchmark.yaml.
+#     scripts/stage4_run.sh có bước kiểm tra alias tồn tại trước khi chạy.
 model_list:
-  # Tên tool gọi: "gemini-3.1-flash-lite". Proxy định tuyến tới Gemini thật.
-  # PHẢI khớp model.id trong config/benchmark.yaml (single source of truth).
+  # Alias trung tính, dùng cho smoke-test (không thuộc tool nào).
   - model_name: gemini-3.1-flash-lite
-    litellm_params:
+    litellm_params: &gemini_params
       model: gemini/gemini-3.1-flash-lite
       api_key: os.environ/GEMINI_API_KEY
       # Cố định tham số suy luận cho công bằng (khớp config/benchmark.yaml).
       temperature: 0
       top_p: 1
+
+  # Alias cho SAIST (Datadog) — tool này không gắn được header nên buộc dùng alias.
+  - model_name: gemini-3.1-flash-lite-saist
+    litellm_params: *gemini_params
+
+  # Alias cho Arm Metis.
+  - model_name: gemini-3.1-flash-lite-metis
+    litellm_params: *gemini_params
 
 # --- Cài đặt chung + đăng ký logger token ------------------------------------
 litellm_settings:

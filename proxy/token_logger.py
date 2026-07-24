@@ -68,6 +68,28 @@ def _extract_tool_name(kwargs) -> str:
     return "unknown"
 
 
+def _tool_from_model_alias(model_name):
+    """
+    Suy ra tool từ ALIAS model, dùng khi tool không gắn được header x-tool-name
+    (ví dụ SAIST). Alias dạng "<model-id>-<tool-suffix>", vd:
+        gemini-3.1-flash-lite-saist  -> "datadog-saist"
+        gemini-3.1-flash-lite-metis  -> "arm-metis"
+    Alias trung tính (không hậu tố) -> None để rơi về "unknown"/header.
+    """
+    if not model_name:
+        return None
+    # Bảng ánh xạ hậu tố -> id tool trong config/benchmark.yaml
+    suffix_map = {
+        "saist": "datadog-saist",
+        "metis": "arm-metis",
+        "vulnhuntr": "vulnhuntr",
+    }
+    for suffix, tool_id in suffix_map.items():
+        if str(model_name).endswith("-" + suffix):
+            return tool_id
+    return None
+
+
 def _extract_usage(response_obj):
     """Lấy prompt/completion/total tokens từ usage THẬT của response."""
     usage = getattr(response_obj, "usage", None)
@@ -91,10 +113,16 @@ class TokenLogger(CustomLogger):
             latency = None
             if start_time and end_time:
                 latency = (end_time - start_time).total_seconds()
+            model_alias = kwargs.get("model")
+            # Quy chiếu tool: ưu tiên header x-tool-name; nếu tool không gắn được
+            # header thì suy từ alias model (xem litellm_config.yaml).
+            tool = _extract_tool_name(kwargs)
+            if tool == "unknown":
+                tool = _tool_from_model_alias(model_alias) or "unknown"
             row = {
                 "ts": datetime.now(timezone.utc).isoformat(),
-                "tool": _extract_tool_name(kwargs),
-                "model": kwargs.get("model"),
+                "tool": tool,
+                "model": model_alias,
                 "prompt_tokens": p_tok,
                 "completion_tokens": c_tok,
                 "total_tokens": t_tok,
