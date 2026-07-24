@@ -103,15 +103,3 @@ tools/                    <- source các tool SAST được clone/build vào đ�
 target/                   <- WebGoat được clone vào đây (không commit)
 results/                  <- findings, thống kê, proxy logs
 ```
-
-## Điểm cần bạn chốt
-
-Trong `config/benchmark.yaml` -> `internet.mode`:
-
-- `webtools_off` (mặc định): cấm web search/fetch trong harness, scanner chỉ đọc
-  code local — nhưng **model hosted vẫn gọi được**.
-- `airgapped`: cấm mọi outbound kể cả model -> phải đổi sang **model local**,
-  kiến trúc khác hẳn.
-
-Hiện đang giả định `webtools_off`. Nếu bạn muốn air-gapped hoàn toàn, đổi giá trị
-đó và báo để mình thay phần model.
